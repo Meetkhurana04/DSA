@@ -10,6 +10,7 @@ int main(){
         int cnti = 0;
         int maxo=0;
         int cnto = 0;
+        // helloooo
         
         for(int i = 0 ; i < arr.size(); i++){
             if(arr[i]==1){

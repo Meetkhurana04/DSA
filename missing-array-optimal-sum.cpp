@@ -62,6 +62,23 @@ int main() {
         }
 
     }
+
+cout << endl << "new approach linear search " ;
+for(int i = 1 ; i <= x.size()+1; i++){ // yeh n natural number pe chlega
+    int flag = 0 ;
+    for ( int j = 0; j < x.size();j++){
+        // yeh apne array pe chelga 
+        if(x[j]==i){
+            flag=1;
+            break;
+        }
+    }
+    if(flag==0){
+    cout << endl << "ans " << i;
+    break;
+}
+}
+
     
 }
 

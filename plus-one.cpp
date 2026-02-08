@@ -2,6 +2,8 @@
 #include<iostream>
 using namespace std;
 
+
+// digits 
 int main() {
     vector<int> digits = {1,1,2,2,9};
     int x = digits[digits.size()-1] + 1;

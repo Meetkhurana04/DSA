@@ -6,15 +6,16 @@ using namespace std;
 
 int main() {
 
-    vector<int> nums = {1,1,3,5};
-    int sum = 0 ; 
+    vector<int> nums = {2,3,5};
+     
     int maxx = 0 ;
     int k = 5;
     for(int i = 0 ; i < nums.size() ; i++){
+        int sum = 0 ;
         for(int j = i ; j < nums.size() ; j++){
             sum = sum + nums[j];
             if(sum==k){
-            maxx = max(0,j-i+1); 
+            maxx = max(maxx,j-i+1); 
             }
         }
     }

@@ -29,6 +29,18 @@ int main(){
             c2++;
         }
     }
-   for(int i = 0 ; i < c0 ; i ++)
+   for(int i = 0 ; i < c0 ; i ++){
+    arr[i]=0;
+   }
+    for(int i = c0 ; i < c1+c0 ; i ++){
+    arr[i]=1;
+   }
+    for(int i = c1+c0 ; i < n ; i ++){
+    arr[i]=2;
+   }
+
+   for(int it : arr ){
+    cout << it;
+   }
 
 }

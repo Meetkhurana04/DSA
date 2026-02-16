@@ -6,7 +6,7 @@ using namespace std;
 int main() {
 
     //using two pointer
-    vector<int> nums = {2,3,5,3,1,1};
+    vector<int> nums = {2,3,5,3,4,1};
     int right = 0;
     int left = 0 ;
     int sam = nums[0];

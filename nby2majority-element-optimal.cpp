@@ -10,8 +10,9 @@ int main() {
     for(int i = 0 ; i < n ; i ++){
         if(count==0){
             el=arr[i];
+            count = 1 ; 
         }
-        if(el==arr[i]){
+        else if(el==arr[i]){
             count+=1;
         }
         else{

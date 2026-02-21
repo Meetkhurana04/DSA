@@ -48,26 +48,6 @@ cout << endl ;
 // ka n/2 htaskte h 
 
 // arr[] = [ 3 ,1 ,-2,-5,2 ,-4]
-
- vector<int> ar = {1,2,-4,-5};
-  n = ar.size();
- vector<int> ans = {} ; 
-
- int index = 0 ;
- for(int i = 0 ; i < n ; i ++){
-   if(ar[i]>0){
-      // mtlb positive h 
-      ans[2*i] = ar[i];
-   }
-   else{
-      ans[2*i + 1] = ar[i];
-   }
- }
-   cout << " approach " << endl ;
-   for(auto it : ans){
-      cout << it ;
-   }
-
  
 
 

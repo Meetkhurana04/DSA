@@ -11,29 +11,29 @@ int  main() {
 
     int n = arr.size(); 
 
-    for(int i= n-1 ; i > 0 ; i --){
-
+    for(int i= n-2 ; i >= 0 ; i --){
         // breakpoint dhundna h 
         if(arr[i]<arr[i+1]){
             // agar aisa h toh isse hi pkdna h 
 
             ind = i ; 
+            break ;
         }
+    }
 
         if(ind == - 1 ){
             reverse(arr.begin() , arr.end());
-            // for(int it: arr){
-            //     cout << it << " " ;
-            // }
-            break;
+         
+            
         }
         // breakkpoint milgya ab next number dhundn ah jo bda ho 
-
+else {
         for(int i = n -1 ; i > ind ; i --){
-            if(arr[i]>arr[ind]);
+            if(arr[i]>arr[ind]){
             // kuch aisa dhund h jo just bda ho jaya nhi 
             swap(arr[i],arr[ind]);
             break ;
+            }
         }
 
         // ab swap hogya h  next me kya kra h ki just ek number bda chaiye toh 
@@ -45,7 +45,7 @@ int  main() {
         reverse(arr.begin() + ind + 1, arr.end());
 
 
-    }
+}
 
     cout << endl ;
     for(auto it : arr){

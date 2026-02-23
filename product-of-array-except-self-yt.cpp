@@ -64,4 +64,25 @@ int main() {
     for(int it:ans){
         cout << it << " ";
     }
+
+    
+   
+    ans.assign(n, 1);
+    cout << endl << "most optimised" << endl ; 
+
+    // phle array jisme prefi ans me hi store krenge 
+
+    for(int i = 1 ; i < n ; i ++){
+        ans[i] = ans[i-1] * arr[i-1];
+    }
+    // ab suffix 
+    int suffix = 1 ; 
+    for(int i = n-2 ; i >= 0 ; i--){
+        suffix = suffix * arr[i+1];
+        ans[i]*= suffix ; 
+    }
+
+    for(int it : ans){
+        cout << it  << " "; 
+    }
 }

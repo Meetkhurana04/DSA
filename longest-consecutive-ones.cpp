@@ -6,7 +6,7 @@ bool ls (vector<int> arr , int num){
     int n = arr.size() ;
     for(int i = 0 ; i < n ; i++){
         if(arr[i]==num){
-            return true
+            return true;
         }
     }
     return false ;
@@ -35,13 +35,12 @@ int main() {
              x = x+1 ; // next wala dhundho 
              len = len + 1 ; 
              maxl = max(len , maxl);
-       }
-       
+       } 
     }
     cout << "hello" << endl;
     cout << maxl << endl;
     for(auto it : arr){
-        cout << it ; 
+        cout << it << " "; 
     }
 
 }

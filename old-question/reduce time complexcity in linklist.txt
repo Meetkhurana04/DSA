@@ -1,0 +1,35 @@
+to reduce time complexcity in linked list ;
+
+
+operations ko combine krdo yeh nhi ki ke loop se coundn krwarhe h or ek se kth node find 
+try to do in one loop rateh than two
+
+
+
+use two pointers slow and fast reduce the time complexcoiy 
+
+
+
+ek last me tail pointer bnake rkho jese ki last me kuc add krna ho toh ek dum se hojaaye 
+
+
+
+recusriosn ki jgh iterations use kro like if else or while ratheer than callin functoin isse space complexcity km nhi hui ;
+
+
+
+use hash table with link list that can reduce the lookup time form on to o1
+
+
+
+
+
+jese pta h ki sorted link list h toh skip pointer bnalo jo skip krta chle ek ek element ko
+
+
+
+agar koi chij null h phle se or uska next null krne ki koshit skrogr jo ki uusk anext hoga hi nhi toh vo segmentation eerrorddega
+
+
+in slow or fast pointer agar fast null nhi  h mtlb wo odd linklist h 
+or nulll h toh even linklist h

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #hidden{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <h1>CHeck hyour password is in the darkweb</h1>
+    <p> we are using some secrets api that search up your data in the darkweb</p>
+    <p> click to find out</p>
+    <button id="btn"> check</button>
+    <div id="hidden">
+        <h1>dhapppa</h1>
+    </div>
+    <script>
+        document.getElementById('btn').addEventListener("click",function()
+    {
+        var x=document.getElementById('hidden');
+        if(x.style.display==='none'){
+            x.style.display = 'block';
+            this.textContent="dekho mera naam bhi bdl gya";//change text content
+           
+        }
+        else{
+            x.style.display="none";
+            this.textContent="show content";
+        }
+    });
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,3626 @@
+Left riste the array by one place 
+
+One place h toh aap use one ko ek temp array ne store krdenge 
+
+Now what is left roatuon the first one went to last 
+1,2,3,4,5 ---> 2,3,4,5,1
+
+Temp = a[0]
+
+Har ith index ko I -1 pe rkhna h mtlb sbko ek ek pcihe Krna h 
+
+I= 1 krke chloge and 
+A[n] = temp
+
+Last pe temp rkhdeogee
+For I= 1 I less than n I plus plus
+
+Arr I -1 = arr(I)
+
+Arr n-1 = temp 
+
+Tc is 0(n)
+
+Sc is big of o 1 
+
+Extra space we are using big of 1 
+In the algorithm puchenge toh hum arr [] bolenege
+Given space is big of (n)
+
+Extra space is big of 1 
+Yeh chij gpt samjhayega
+
+New question 
+Left roatate array by d places 
+
+Phle sochte h isme kya kr rha hounga m 
+
+Phle ya toh jo d diya h left right smjh ke uski palcement krdunga , uske baad kya Krna h uske baad ke ya phle ke hum displace krr rhe honge shift kr rhe honge or aage wale jo bch rhe honge unhe loop lgake place kar rhe honge bhi tj toh mera yeh maan na h aage dekhte h kesa pdhayenge sir 
+
+
+Arr = 1,2,3,4,5,6,7
+
+D = 2
+Arr equal to 3,4,5,6,7,1,2
+
+D could've 3 or 4 
+
+Size of array currently is 7 
+Can you rotate by seven places ? D=7 rkhoge toh saari chije home same hi array phir bnajayega
+
+D= 8 means 
+7+1 
+Mtlb same + 1 we can count it as 1 
+Same for 9 we can count it as 2
+
+D=15
+7+7+1 
+D = d%N 
+
+Toh agar 20 bhi ajaye toh aapko sirf 6 rotation hi krni h 
+
+Yeh thoda smart way hoga smaller krne kaa 
+
+Ab 1 palce wale me hum 1 ko tmeparily sote kr rhe the and then sbko back shift kr rhe the 
+
+But yha d = 3 hoga 
+
+First 3 ko ek temp ne store krengee 
+Temp [] = [1,2,3]
+
+Shifting if d= 3 we start shfting from d index  
+D th index 0 th index pe aayega
+D+1 index 1th pe aayega 
+
+Yha hum loop chla rhe honge toh loop I = d se chl rha hoga 
+
+And i-d krne se woh 0 pe ajayenege
+
+for ( i = d ; i < n ; i++) {
+i wala d palces back jaayega 
+{
+a[i-d] = a[i];
+}
+
+and then ab put back temporary in last back 
+
+shifting by 3 tha toh last bhi 3 hi places bchegi ab kese bta chlega ki first index kya hoga unka first index hoga 
+n-d = 4th index e hum apni temp wali copty kar rhe honge 
+j=0 ( temp wale ki count karega )
+for ( i = n-k ; i <n ; i ++ ) {
+a[i] = temp[j];
+j++;
+}
+
+kya hum j ka jhanjhat khtm krskte h ?
+
+temp ka first wala humesha n - d pe jaayega
+temp ka second wala humesha n - d+1 ; n-d+2
+
+toh upar wale loop ka hum change kar skt h 
+for( i = n-d ; i < n: i ++) {
+a[i] = temp[i-(n-d)];
+}
+
+
+proper code ke step kese honge 
+d= d %N krke hum reduce krdenge array ko 
+int temp[d]
+for( int i = 0 ; i < d ; i ++ ){
+temp[i] = arr[i[;
+}
+// yeh toh temp me bhar liya 
+now shifting
+gpt code complete krdena 
+
+tc dekhte  h tc for making a temp array 0(d)
+then shift O(n-d)
+then place back temp O(d)
+
+
+in addition O(n-d)
+
+extra space used is 0(d)
+
+now optimal krte h 
+arr = [1,2,3,4,5,6,7]
+isko krna h aise = {4,5,6,7,1,2,3]
+
+when d = 3 and n=7
+mtlb first teen ko utha ke last me bitahna h 
+take the first three element try to reverse it 
+3 2 1
+and last bhi 
+7 6 5 4
+
+3 2 1 7 6 5 4
+ab isi array ko aap reverse krdoge dekho woh hi bnke aagye
+4 5 6 7 1 2 3 4
+
+toh yha teen part me chl rha hoga 
+reverse( a se a + d) 
+theat means first part 
+reverse ( a+d , a+n) second part
+reverse(a , a+n) then whole ko krna h 
+
+three reverse krna h toh kaam hojaayega 
+
+o(d)
+(n-d)
+o(d)
+
+o(2n)
+tc increased hua h yha pe 
+but space complexcity km hui h jisme hum kuch nya nhi use kar rhe h 
+
+
+mostly pre written hota h reverse function 
+stl me reverse hgota h 
+
+but c me kai baar likhna pdta h 
+
+
+next problem moving zeroes to end 
+
+arr[] = { 1,0,2,3,2,0,0,4,5,1 }
+
+non zero ko front me krdo and last me zero krdenge isme bhi usi question ki thr krna h jo mene question kiya tha kal jism me duplciates remove krne the 
+jo 0 nhi h unhe start me print kro k counter tbhi plu shoga no 0 wale pe isse skip hojayenge 0 and last me jitne bchenge usme hum 0 lgadenge
+
+let say striver kya pdhta h 
+brute force
+
+pickup all non zero number and store in the arrayh 
+
+[ 1 ,2 ,3 , 2 , 4, 5 ,1 ]
+store krliye no zero ko ek temp me
+once i have done this 
+
+ab merpe non zero number aagye h me inhe fronte me place krdunga orinal array ke 
+
+arr [ 1,2,3,2,4,5,1] and then 0 daaldenge last me jitney bch rhe honge n
+
+class Solution {
+  public:
+    void pushZerosToEnd(vector<int>& arr) {
+        // code here
+         vector<int> temp(arr.size());  
+        int k = 0 ;
+        for ( int i = 0 ; i < arr.size() ; i ++){
+            if(arr[i] != 0){
+                temp[k] = arr[i];
+                k++;
+            }
+            
+        }
+        
+        for (int i = 0 ; i < temp.size() ; i ++){
+            arr[i]=temp[i];
+        }
+        // yeh sb bhardega jitne non zero the ; 
+        // step 3
+        // filling of zero in the back 
+        // no.of non zero = temp.size()
+        
+        for(int i = temp.size() ; i < arr.size() ; i ++ ){
+            arr[i] = 0 ;
+        }
+        
+        
+    }
+};
+
+yeh toh brute force hogya 
+tc o(n) + o(x) + 0(n-x)
+o(2N)
+
+sc - o(x)se leke o(N) tk jb entrie array hi temp me arha hoga
+
+
+vector<int> temp(arr.size());
+🔴 Problem tumhare original code me
+Tum likh rahe the:
+
+vector<int> temp;
+temp[k] = arr[i];
+👉 Issue:
+temp ka size 0 hota hai initially.
+
+So memory aisi hoti hai:
+
+temp = [ ]   // empty
+Ab agar k = 0:
+
+temp[0] = arr[i];   ❌
+❌ Invalid access → vector ke andar index 0 exist hi nahi karta.
+
+🟢 Solution: size pehle se reserve kar do
+vector<int> temp(arr.size());
+Ab memory aisi hogi:
+
+temp = [0, 0, 0, 0, 0]   // same size as arr
+Toh ab:
+
+temp[0] = arr[i];   ✅
+temp[1] = arr[i];   ✅
+Bilkul safe.
+
+🧠 Important concept (array vs vector)
+Case	Kya hota hai
+int temp[n];	Fixed size, direct index allowed
+vector<int> temp;	Size 0 initially
+vector<int> temp(n);	Size n, index allowed
+temp.push_back(x)	Size khud badhta
+Tum indexing use kar rahe ho (temp[k]),
+isliye vector ko pehle se size dena mandatory hai.
+
+
+optimal dekhte h
+better nhi h 
+abhi tk humne temp ka use kiya h 
+ 1 , 0,2,3,2,,0,0,4,5,1,
+
+0 ko htana h toh aage ki shift horhe honge 
+we try to use a 2 pointer approach something we did in removing duplicates in array
+
+mera toh one pointr approach tha isse jyada optimal lg rha h 
+usme kya tha non zero nhi h toh use starting me replace krte gya end me agar bch rha h toh 0 place krte gye 
+let say striver kya khta h 
+
+find the 0 wheich is right next after this 
+if this is a not zero number toh swap krdo un do number ko 
+
+[1,0,2,3,2,0,0,4,5,1]
+hum 0 pe khde h right most 2 h un dono ko swap krdenge 
+then ab 0 ki jgh 2 h ki jgh 0
+1,2,0,3,2,0,0,4,5,1]
+i= 0 pe h j=3 pe h 
+j non zero h fir i and j swap krdenge
+1,2,3,0,2,0,0,4,5,1
+
+then again i = 0 pe agya j 2 pe agya j non zero h toh then again swap
+1,2,3,2,0,0,0,4,5,1
+then i still pointing 2 ke baad wala 0 zero j ab dhundte dhundte 4 pe achuka h hum un 0 or 4 ko swap krenge 
+1,2,3,2,4,0,0,0,5,1
+
+1,2,3,2,4,5,0,0,0
+
+hum single iteration me krdenge much better than temp me store krna 
+
+step 1 ; finding first 0 th element 
+j = - 1 ;
+for (i =0 ; i< n ; i +1){
+if(arr[i]==0)
+j=i; index ko store krlo yeh hi 0 h and bahr aajao 
+break;
+
+} 
+0(N)
+
+phla 0 milgya ab me iske aage koi non zero dundunga 
+
+for ( i = j+ 1 ; i < n ; i ++)
+{
+if(arr[i]  != 0){ agar aap non zero ho toh swap hojao
+swap[arr[i] , arr[j] ;
+j ++;
+}
+j aage bhar jaayega only swap hone pe nhi toh sirf i hi move krega
+
+
+o(n-x) remaining 
+
+overall is 0(n) tc 
+sc is 0(n)
+
+LINEAR SEARCH 
+help krta h search krne me 
+search kro ek number ko 
+6,7,8,4,1,
+
+nums = 4 
+ls return 3  as per 0 based indexing 
+
+for (i=0 ; i < n : i ++)
+{
+if(arr[i]==nums)
+return i ;
+}
+
+yeh first occurencde dega agar last occurance deni h toh ulta bhi chl skte hoya return baad me likho for ke bhar ki ek abar for pura chl jaaye 
+
+and if saari chaiuye toh ek array me store bhi karskte ho
+easy peasy
+
+find union of two sorted arrays might have duplicates 
+
+union e hume add krna hota h bina repeat kre koi bhi element 
+1,1,2,3,4,5
+2,3,4,4,5,6
+
+1,2,3,4,5,6
+
+m try krta toh set se krta unique element sorted order me rehga 
+brute force approach dekjte
+set se hoga 
+
+iterating first array put them in set 
+itetating the second array and put it in set 
+
+union  naam ka temp array bnayeng and saare set me se is array me dalna h 
+
+step 1 
+set <int> st;
+for (i =0 ; i < n ; i ++ ) {
+st.insert (arr[i])
+for (i = --> n2)
+st.insert arr[i]
+
+
+union [ st.size() ]
+for ( auto it : st ) {
+union[i++]=it;
+
+union.add(it)if list or vector h toh aise add kr rhe hogne using add or push back 
+
+toh isme time complexcity kitni lgegi dekhte h 
+0(nlogn)
+0(nlogn)
+
+0(n1+n2) when n1 or n2 me totally different hi rhengee 
+o(n1 logn + n2logn ) + 0(n1+n2) total time complexcity ;
+sc we using external set 0(n1+n2 ) + 0(n1+n2) ek union naam ka set bhi toh lenge jisse answr ikhahr ogne 
+
+
+
+optimal ke liye hum twoo pointer approach rkhen wale h isme hum dac wlae ki trh krenge ki arr[1] epe ek pint aray 2 pe k pointer compare krayenge push krenge asia hi kuch krta agar me hota toh chlo dkeht h striver kese krta h 
+
+taking two poionter on tow arrays 
+
+array[1] = [1,1,2,3,4,5]
+arr[2] = [2,3,4,4,5,6]
+
+union [] = []
+
+dono mese konsa smallest h 1 se aayega 1 wala pointer + hojayega 
+union me 1 agya and i ++ hogya 
+now i pointing to 1 and j pointing 2 but kya firse 1 jaayega jana toh chaiye hum jaane nhi enge i ++ krdenge now
+i is at 2 j is at 2 kisis bh ke se 2 ajayega let say i se 2 aagya now
+i wala 3 pe point krega
+j wala 2 pe point krega
+
+2 toh anahiskta toh um ise nhi lenege but pointer move krdenge inorder to ignore ya pseudo khdo ki mene daaldiy h 
+
+i = 3 
+j = 3
+kisis me se bhi leleo i selete as convention
+now i = 4
+j = 3
+3 aleready h nhi legne but j ++ jrur krnege 
+now i = 4
+j = 4 
+i senge 
+i = 5
+j = 4
+j se nhi leskte but j++
+i = 5
+j = 5 
+i++ 
+outof bound hojayega finish 
+
+if one of the arrya ka hojaye toh dusre wale ke linearly fill krdo 
+but maybe ith or jth same ho toh dkethe h kese hoga kyuki outof bound hone se phle i ne 5 daala tha but abhi bhi j me 5 h kya 5 duabra jana chaiye nhi isliye ise kese handle kr rhe honge dkehgen 
+
+while(i<n1 && j < n2 ) {
+if a is not queal to b ) {
+if union ke andar jo array h voh bhi iske equal nhi h toh 
+union.back! + a[i] ;
+toh aap push krdoge 
+
+but i++ is condition me matter nhi kr rhi hogi ki usme h ya nhi usme hoga toh hum daalnege nhi oga toh hum pseudo dikhayenge ki usme hum ne daaldiy h but aage jrur bdhenge 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    // Function to find union of two sorted arrays using two pointers
+    vector<int> findUnion(int arr1[], int arr2[], int n, int m) {
+        // Vector to store union elements
+        vector<int> Union;
+
+        // Initialize two pointers for both arrays
+        int i = 0, j = 0;
+
+        // Loop until either pointer reaches the end
+        while (i < n && j < m) {
+            // If current element in arr1 is smaller
+            if (arr1[i] < arr2[j]) {
+                // Add element if union empty or different from last added
+                if (Union.empty() || Union.back() != arr1[i])
+                    Union.push_back(arr1[i]);
+                i++;  // Move pointer in arr1
+            }
+            // If current element in arr2 is smaller
+            else if (arr2[j] < arr1[i]) {
+                // Add element if union empty or different from last added
+                if (Union.empty() || Union.back() != arr2[j])
+                    Union.push_back(arr2[j]);
+                j++;  // Move pointer in arr2
+            }
+            else {
+                // Elements are equal, add once if not duplicate
+                if (Union.empty() || Union.back() != arr1[i])
+                    Union.push_back(arr1[i]);
+                i++; j++;  // Move both pointers
+            }
+        }
+
+        // Append remaining elements from arr1
+        while (i < n) {
+            if (Union.empty() || Union.back() != arr1[i])
+                Union.push_back(arr1[i]);
+            i++;
+        }
+
+        // Append remaining elements from arr2
+        while (j < m) {
+            if (Union.empty() || Union.back() != arr2[j])
+                Union.push_back(arr2[j]);
+            j++;
+        }
+
+        // Return the final union vector
+        return Union;
+    }
+};
+
+int main() {
+    int arr1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int arr2[] = {2, 3, 4, 4, 5, 11, 12};
+    int n = 10, m = 7;
+
+    Solution obj;
+    vector<int> result = obj.findUnion(arr1, arr2, n, m);
+
+    cout << "Union of arr1 and arr2 is: ";
+    for (int val : result) cout << val << " ";
+    return 0;
+}
+
+time complexcity of particular code 
+someway we are iterating through out the array 
+ek hi loop chla h bas in one loop
+tc --> o (n1+n2)
+sc --> 0(n1+n2) for solving only we dont take any another tempary error
+
+untersection of two sorted array
+
+a = 1,2,2,3,3,4,5,6
+b = 2,3,3,5,6,6,7
+
+a and b ka intersection dono ka kya common h woh likhna h 
+a intersection b is
+
+for every elelmt htere is correspondence in another array
+common bhi check krna h or yhe bhi dkehan  ki ek hi baar aaye agar merkeo krna hot oh me toh sb ke liye linear search krunga jo ki kaafi hard hojayega linear search in final array and linear search in correspondence array
+yha toh m merge union se karne ki soch rha tha but woh toh worst hojata bta hi nhi chlta kon kisse aaya h btut agar ek array krke agar yeh bhi bta chl paaye like maping or naming toh hosktta h 
+
+ya toh map bnake ffir un map ko keys ke basis pe merge krdo use bhi hoskta h 
+nhi ho payega merse map bnake krliya mene jo ki optimal nhi thaa
+
+lets rtrysyriver method
+
+visited array bnadete h 
+
+vs [] = [0,0,0,0,0,0]
+
+marked as 0 that show they haven't been used till now 
+
+start with first element in the array i dont found the one in second array 
+next search 2 2 milgya toh m uska corresponding me visited array me 1 map krdunga 
+
+[1 1 
+
+again 2 ke liye 2 is taken 
+i have seen 3 and mark it as visited or use array me bhi daldiya 
+
+again 3 check first 3 oh you are commited me next me mark krunga oh you are alone me visted krdunga or dubar a 3 daaldunga then again 4 khi nhi mila skip 
+
+then 5 mil or mark krdiya 
+then 6 mila mark krdiy 
+i khtm
+
+for ( i = 0 --> n1 ) {
+for (j = 0 --> n2 ) {
+if(a[i] == b[j] && vis[j] = 0 ) { equal = visited doneo ka dhuan rkhenga 
+arr.add(a[i])
+break ;
+}
+if(b[j] > a[i] break ; this means aap truncate krdo kyuki aap bhot aage aachuke sorted array h ise aage kuch nhi mielga 
+}
+}
+
+i will route through entire 2 
+
+tc two loops h n1 * n2 worst time coplexcity 
+sc --> o(n2)
+
+this is our brute force approach ek brute force apaorach mera bhi tha jisme map use kar rhe h te
+
+2 pointer lg skta h agar sorted h toh array
+
+ek pointer a [] pe lgega 
+ek pinter b[] pe lgega 
+
+
+
+1,2,2,3,3,4,5,6
+2,3,3,5,6,6,7
+
+agar mereo bta chlgya ki phle do hi same nhi h toh 
+
+we can def say that there are no occurecne of 1 
+
+1 or 2 match nhi hoye hshit iska koi h hi nhi fir chota vese h 
+we i++
+now compare 2 and 2 we find amathc we push 2 sinside at this case we have two 
+move i++ and j++  
+now 2 and 3 as 2 is less than 3 aage bhi kuch nhi milne wala 
+i++
+i - 3 
+j - 3 
+
+partner mil gya now push krdo dono ko aage krdo
+
+i ++
+j ++
+
+i- 3
+j - 3
+partner mil gya 
+i++
+j++
+i- 4
+j-5
+
+i is less than j i ++ they cant have a pertner
+i - 5
+j - 5 partner mil gya 
+push or i++ j ++
+i-6
+j-6
+i++
+j++
+
+i exceed i cant make more pointer toh ek ka bhi exceed hojaye toh issue nhi 
+
+
+NEW VIDEO
+
+missing number
+
+arr[] = [ 1,2,4,5]
+
+you are given an array jisme me kuch missing hoga 
+and hume n diya jaayega jo btayega ki inte number h 
+for eg 5 
+n=5
+
+
+number 1 to n h ek missing h 
+jese isme 3 missing h 
+
+brute force solution 
+check one by 1 is 1 exist ? bchekc 2 exist is 2 exist . check 3 exist 
+linear search lgarhe honge 
+for( i = 1 ; i < = n ; i ++){
+flag=0;
+for (int j = 0 ; j < n -1 ; j ++){
+if(arr[j] == i)
+{
+flag = 1 ;
+break;
+;
+if(flag=0){
+// this only happen when number is not there ;
+retrun i ;
+}
+
+yeh har number ke liye check kar rha hoga and flag = 1 kar rha hoga jese hi phla milega 
+agar pure j wala loop end hojata h mtlb aisa koi number h hi nhi asia number htoa toh flag = 1 ho chuka hota 
+
+TC O(n*n)
+
+1% case h hypothecial har baar o n2 nhi hoga but worst me hoga o n2
+
+better dete h 
+
+ammybe i use hashing 
+
+the number a re between 1 to 5 
+toh m ek hash array bnadunga between 1 to 5 
+
+us has me insitallly toh saare zero honge
+[0,0,0,0,0]
+jonsa nhi mark horha hoga woh hoga humara answer
+
+code 
+
+hash [ n+1] = {0}
+
+for (i = 0 ; i << n ; i ++){
+{
+hash[arr[i]] = 1;
+}
+
+for(i = 1 -> n ) {
+if (has[i] == 0 ){
+retrunr i ;
+}
+
+what is time complexcity 
+
+tc-> o(N) + 0(n) 
+0 2(n) worst case 
+sc o(n) kyuki hum extra has array  lerhe h 
+
+optimise the space complexcity 
+this has two optimal solution one is sum 
+and one is xor
+
+
+sum
+
+first n natural number ka sum krte h toh 
+sum = n(n+1)/ 2
+
+and then pure array ka add krenge 
+
+arr [] = [1,2,4,5]
+sbko for loop lgake add krlenge 
+
+submission of n - submission of not missing ; 
+
+missing number is sum - sum of n-1
+
+retrun (sum -s2)
+
+tc 
+sum ke liye single loop chl rhah and n natural number ka toh simple arha h 
+
+tc-> o(N)
+sc->o(1)
+
+this is best we can do 
+
+XOR
+xpr same number it will be zero 
+2^2 ^ 5^5
+0     0
+   0
+
+2^2^2
+
+2^2 0 aayega
+0 ^2 always is a zero
+
+
+bas inta smkhlonbaaki ke cases me one dega 
+
+n = 5 
+i know 5 natural nubers 
+i can write 
+[1 2 3 4 5]
+and given set
+[1 2   4 5]
+
+
+if we try to do xor 
+
+sbke same h sbke 0 aaajyega but 3 rh jaayega 
+nit iska agar tjree tk sat kroge 0 ^ 3 0 hi aayega 
+take a variable xor 1 = 1^2^4^5
+
+xor1 = 1^2^3^4^5 yeh original ka kiya h 
+xor2 = 1^2^4^5 yeh jo given ka kiya h 
+
+xor1 ^ xor2
+it is something like this 
+
+(1^1)^(2^2)^(3)^(4^4)
+0     0     3   0 
+
+0^3 = 3
+they will cuttof each other and the only number remaingin is 3 
+
+xor1 = 0
+for(i=1->n){
+xor1 = xor1 ^ i;
+
+xor2 = 0
+for(i=0 --> i < n-1 ; i ++ ) {
+xor2=xor2^arr[i]
+}
+
+xor1^xor2
+
+xor1 or xor2 nikal liya human
+fir apas me kiya toh voh value nikal jaayegi jo missing hogi 
+
+time complexcity is 0(2n)
+
+2n use better nhi hui phle bhi 2n hi toh thi phel toh sirf n hi thi 
+ 
+
+loop is running from 0 to 3 
+
+xor1 = xor1 ^(i+1) isko add krdenge 
+
+xor2 = 0
+xor1 = 0
+for(i=0 --> i < n-1 ; i ++ ) {
+xor2 = xor2^arr[i]
+xor1 = xor1^(i+1)
+xor1 = xor1^N
+}
+
+toh isme dono hi kaam ek sath horhe h 
+
+xor2 upar wala loop given array ko xor krna
+xor1 n natural number ko kr rha hoga 
+xor1 = 0 ^ (i+1)
+but idhr i = 0 h toh 1 se start hoga but idhar 4 tk hi chlega 
+but last wala rh jaayega jiske liye hum dubara likh rhe honge
+
+xor wala is slightly better
+n ka  cap 10^5 h 
+n*n krenge this cant be store in integer
+and hum long lenge woh slightly extra space le rha hoga jo ki bhot matter krta h
+
+xor never exceed larger number 
+
+brute better optimal -- > pro optimal 
+
+
+maximum consecutive ones
+
+
+1,1,0,1,1,1,0,1,1
+
+2 ones aaye phir 3 ones aaye phir 2 ones aaye 
+
+max consecutive ones is 1 
+
+fisrt maanlo there is no consecutive one = 0
+
+counter bithalo 
+counter = 0 
+jese jese one aaye counter bdhao
+if 0 ajaye break agya counter 0 hojayega is scene me
+but hume kese bta chlega highest h ?
+counter toh reset horha h 
+
+uske liye hum ek array lerhe hogne
+or phir us aray ka maximinum hi humara answer hoga
+
+time complexcity is O(N)
+
+int maxi = 0;
+int cnt = 0 ;
+for int o = 0 ; i < nums.size( ; i ++) {
+if(nums[i] == 1) {
+cnt ++ 
+maxi = max(maxi , cnt)
+}
+else {
+cnt = 0 ;
+}}
+return maxi ;
+
+maxi max pkd ke rkhega 
+
+
+finding the number that aapears once and the other twice
+
+arr  = [1,1,2,3,3,4,4]
+isme kha gya h ki aisa btao jo sirf ek baar aaye ho bki baaki 2 baar aaye ho 
+
+mere dimag me toh siddha hashing aaata h but fir woh on se hojayega rray ted ek hi loop me chlega
+
+chlo ekht eh striver kya smjahta h 
+
+
+brute force 
+pixkup every number once and linear search kr rhe honge to find isi me store nhi krenge bas yeh dkehenge konsa once arha h 
+
+for i = 0 --> n 
+num = arr[i]
+cnt = 0
+for j->0 -> n 
+if arr[j] == num 
+cnt ++
+if(cnt ==1 ) return ;
+
+har number ke liye search krega count == krega nya number pe jaane se phle check krega ki count 1 h yes toh return krdega 
+
+time -complexicty is o(n2)
+
+better solution
+hashing 
+by doing this i can tell who apper once
+
+af i create array of size 5 
+so last index is 4 and sbko 0 se intialsie krdiya
+
+and yeh overwrite hojayega by count number 
+ab check krlenge ksisk hash value one h whi i print kardega
+what size of hash arrya you define ??
+
+max element +1 krke kar rhe hogne 
+
+for(i=0;i < n;i++)
+xaxi = max(maxi,arr[i])
+
+yeh upar ka 0(n) chlega or bta krega ki konsa bda element h toh kitna bdi hash table banai h 
+fir hum un hi bdi hash table bnarhe honge 
+
+hash[max]=[0] // initialise krdiya
+for(i=0->n)
+hash{arr[i]]++;
+o(n) yeh bhi 0n lega 
+
+then yeh saare number pe count lgadega but ab check krte h 
+
+for(i->0 se leke n ) 
+if(hash[arr[i[ ==1 ) 
+return arr[i];
+}
+yeh bhi 0n lega
+
+time complexcity is 3 0n
+spac complexcit y is 0(input)
+depencds on input 
+
+what if array has negaties
+or big number 
+
+in that case we cant hash 
+in this kind of case we use map <long long int>
+map ds with bigger values that could be unordered or orderd map in cpp
+
+hash me kya h agar data sparse hua toh voh fs jaayega kyuki kaafi chije empty rhne lgegi 
+
+but unordered set me yeh chl jaayega maping sirf givne ki hogi sparse easiely handle hogne or null values ka bhi issue nhi 
+
+iterate in the map and get your answer 
+
+for( i = 0 -> n )
+mpp[arr[i]++;
+
+ordered map me tc hogi nlogm
+unodered map me tc best case is 0n
+		   worst case 0(n2) 
+
+worst case ke 1% chancws h agar hua bhi toh me ordered map pe switch hojaunga 
+
+for(auto it :mpp)
+{
+if (it.second == 1) // value  humesha seocd parameter me hogi 
+{
+return it.first  ; if 1 h toh return krdo it  
+
+}
+
+yha pe size of array 7 tha fir bhi mene 4 hi chiej store kari in map
+
+store n/2 every number appear twice kah h na toh n/2 hoga 
+actually n/2 + 1 ( ek toh akela h jiske liye code likha jarha h )
+
+iteratior wala loop chelga --> 0(n/2 + 1)
+
+total complexcity 
+o(nlogm) + (n/2 + 1)
+nlogm jo fill kar rhe h unka 
+n.2 jo mene traverse krek find kya uska 
+
+
+optimal 
+every number twice kah h ek once arah 
+yeh toh human xor se kiya h 
+toh saare cancel hojayenge ek bach jaayega
+
+
+a  ^ a --> 0
+1 1 2 3 3 8 8
+0   2  0   8  after xor
+
+0 ^ 2 = 2
+
+pretty simple 
+
+xor = 0
+
+for ( 1 = 0 - > n )
+xor = xor  arr[i];
+
+return xor ;
+
+time complexcity is 0(n)
+sc is o(N)
+
+
+
+LOngest subaraywith sum k ( where k is always positive )
+
+arr[] = [1,2,3,1,1,1,1,4,2,3]
+
+contiguous part of the array 
+
+koi sa bhi aprt bhi sub array hoskta h jo ki consecutive ho lgatar ho 
+
+kuch bhi glatar ek subarray hoskta h hche khi se bhi start hua h  
+longest subbaray with sum of k 
+woh sub array chunna h jinka sum k ho chahe woh ek digit ka ya n digit ka ho
+hume longest ka dhundna h 
+
+everytime i keep pointer on something toh ek dusra pointer bhi j  lo jo i se hi start hoga 
+so i have to traverse j 
+and then m ab i second pe rkh rha hounga
+
+for i = i < n i ++ ) (starting ka pkdega sbko lena h )
+for(j =i ; j<n ; j ++) {
+sum = 0 
+for ( k = i->j )
+s+ = a[k] 
+if(s==k) len = mm(len,j-i+1) // is se highest wale length ko pdk ke rkhega 
+}
+}
+
+isme sum dekho aise  nikalenge
+phla loop toh starting pdkega
+ddusra loop end pkedga teesra loop un start or end ke bich sum nikalega
+
+ab max len = 0 lelo start me and har baar len calculate kro Jha pe aapko lge length equal h 
+
+
+tc - somewhere around n3
+not exactly n3 kyuki dimisnishing array h voh 
+
+
+ab thoda better krte h observation se
+
+first sub array is 1 
+and then 2 
+23 231 2311 23111
+
+submission me next element judta jarha h 
+kyu me starting se pura iterate kru jb bta h ki is moment tk sum itna h 
+kyu dubara shuru se calculate krna 
+toh hum ek loop km krskte h 
+
+for i = 0 ---> n 
+sum = 0 
+for j = i ----> n 
+sum + = a[j]
+
+if(s==k) len = max(len , j - i + 1)
+}
+}
+
+ek loop bchdiya jis loop me woh array traverse krna hot tha i se j leke 
+
+yeh brute force hi tha o(n2)
+
+better can be hashing 
+
+[ . . . . . ]
+
+this is an array with random number i m looking for sum = k subarray
+
+how amny from front 5 prefixsum = x 
+
+complete sum is x
+
+
+
+toh agar m 5 th dot pkdhu toh yeh dher saare array honge jo isko include kar re honge subarray include kar rhe honge 
+
+if there exist a subarray with sum k as . as the last element 
+these 3 number give submission of k
+
+reverse engineering
+
+.........
+agar phle 10 element ka sum k h or mereko 5 element ka sum bta h x-k h toh next ka sum k hoga 
+
+i can not find middle  sum noweheree 
+toh m prefix ka sum x nikal lunaga
+like me keh skta hu ki m 6-10 ka sum nikaal nhi skta
+1-6 nikal skta hu 1-10 nikal skta hu minus krdunga 
+i can do that eevery array and generate subarray for that
+
+hash map lelete  h 
+chlo dry run ke liye
+hash map kyu liya 
+mereko khi oth likhna pdega itne ka sum k h ; itne ka sum x h 
+tbhi toh x - k niklega 
+
+ek pointer lo sum krte huye niklo 
+eg 
+ 0.1.2.3.4.5.6.7.8.9
+[1.2.3.1.1.1.1.4.2.3]
+
+hashmap pe lihte h 0 pe 1 h 
+		 h 1 pe 3 h 
+2 pe 6 sum h 
+3 pe 7 sum h 
+4 pe 8 sum h 
+
+
+
+till element sum 3 sum is 6
+
+we are looking somene with 3  
+
+merep sum 6 h yeh bta chl gyaa ;
+but 6 - 3 h yeh kese bta chlega ;
+
+
+#include<stdio.h>
+#include<bits/stdc++.h>
+
+#include<iostream>
+using namespace std;
+
+int main() {
+
+    
+
+    // chlo remind krte h better apporach kya thi woh thi dynamic programming pe 
+    // jisme hum reverse enginerring krte teh and reverse engineering ke waqt hum phle pure array ka one by one 
+    // sum nikaal rhe hote the and if hume bta chlta tha ki koi aisa sum h jo hum minus krde toh humara sum aajye
+    // for eg huamra sum h 6 
+    // and hum iterate krte huye 9 tk aagye h and by mapint hume bta h ki 9-6 exist krta h 3
+    // toh wha se lkee yha tk ka sum humara desired sum hoga 
+    // unorderd set use krskte h jo ki o(n*1) one deta h but agar kaafi collisoin hone lge toh 
+    // yeh hi chij o (n * n) nsquare bn jayega jo ki bura hoga ordered set jbki o(n(logm)) krta h at worst scenario
+    // isme toh hum mapping use krenge
+    unordered_map<int, int> mp;
+    int k= 5 ;
+    vector<int> nums = {2,3,5,3,1,1};
+    auto summ = 0 ; 
+    int len = 0 ;
+    int maxx = 0;
+    for(int i = 0 ; i < nums.size(); i ++){
+        summ = summ + nums[i];
+        if(summ == k ){
+            maxx = max(maxx, i + 1);
+        }
+        if(mp.find(summ-k) != mp.end()){
+            len = i - mp[summ-k];
+            // Agar 7 prefix sum pehle index 1 pe mila tha, toh matlab next line se 
+            maxx = max(maxx,len);
+        }
+        if(mp.find(summ) == mp.end()){
+            // gar ye prefix pehli baar aa raha hai tabhi store karo kyuki isse hi bda wala mil rha hoga iske baad jo bhi 
+            // milega chota hi hoga 
+    mp[summ] = i;
+}
+
+    }
+
+    cout << "output : " << maxx << endl ; 
+}
+ 
+
+
+
+tc = > 0n*logn if we using ordered map 
+       on*1 if we use unordered map and in worst case if collison horhe h toh On2 hojayega
+
+sc = > 0(n) kyuki saare hi prefix sum store horhe honge 
+
+prefix sum + hashmap -- > negatives pe bhi chlega 
+jo aage hum two pointer ya sliding window dekh rhe h woh positive only hota h 
+
+
+two pointer ke trike se krte h chlo jo ki optimal h 
+arr[] = [ 1,2,3,1,1,1,1,3,3]
+
+
+before moving through dry run
+
+dekho hum ek lloop me right move kar rhe h 
+sum increase hoga 
+there will be a point they will go beyond the k 
+at this scenario hum trim karenge left se 
+
+arr = [ 1,2,3,1,1,1,1,3,3]
+
+sum = 1 
+len =0 
+at i = 0 
+
+sum  < k 
+i ++
+sum = 3 
+sum < k 
+i ++
+sum = 6 
+here sum = k ,, 6 
+toh len = 3
+hojayegi j - i + 1 
+
+i ++ 
+sum = 7
+but this is sum > k 
+before moving sum is 7 that is greater
+ise toh km krna pdega
+kese km krenge j ko bdhage left most wale pointer ko + 1 krke
+j++
+ab now 
+sum = 6 
+sum = k 
+again len = 3
+i++
+
+sum = 7 
+exceeded
+j++
+
+sum = 5
+i++
+sum = 6
+sum = k 
+len = 4
+i++
+
+sum = 7
+everytime you move sum check kro
+sum>k
+j++
+trim krdiya 
+sum = 4 hogya
+
+i++
+sum = 7
+sum > k 
+trim kro
+j++
+now sum is 6
+sum = k 
+len update krenge
+i++
+sum = 9
+
+sum > k 
+j ++
+trim kro
+
+sum = 8
+still sum > k 
+j ++
+trim kro 
+
+sum = 6 
+sum == k 
+update len 
+len = 2
+
+max len = 4
+
+moment i finish stop 
+
+int left = 0 ; right = 0 
+sum = a[0] ; initially 
+int maxlen = 0;
+int n = a.size();
+
+while(right>n) // for loop nhi chlarhe chlo shi h 
+{
+right++; // first move then add 
+// boundary na cross hojaye
+while(left <= right && sum>k){ // jb jb left chtota h righ  se khi left paar kr chuka ho tb nhi krna ; and sum bda ho k se ; 
+sum-=a[left];
+left++
+}
+if(sum==k) {
+maxlen = max(maxlen, right-left)}
+if(right>n)
+sum += a[right];
+
+
+return maxlen;
+
+
+if contain positives and zerores this is optimal 
+
+tc at worst case 0(2n)
+do while loop h ek bhar jo i ko aage krenga and ek andar jo trim kar rha hoga lgatar 
+dekho kitna shi h lgatar krne ka hume bta nhi h kitni baar hoga bina recursion ke bhi ho parha h crazyyy
+
+dusra loop toh bas andr trim krne ke liye
+overall andar wala bhi 0(n)  chlega kuch kuch krte krte ; phle trim trim karke aise krke pura trim kardegaj
+
+sc--> 0(1)
+
+
+TWO SUM 
+
+arr = [2,6,5,8,11] target = 14 
+dpes tehre exist two element a and b such that if i add them up the gave target
+
+jese isme 8 or 6 milke 14 krte h 
+indexing is  1,3 
+
+both index aapko retrun krne h 
+ek variety hote h jisme yes or no khan hota h ek me index return krne hote h 
+
+brute force
+i pickup one element then check with every toerh elelmetn 
+ek ek ko pkdunga uske liye pura array traverse kr rha hounga 
+
+arr[] = [2,5,5,8,11]
+
+for(i=0; i < n ; i ++)
+{
+for(j=0;j< n ; j++){
+if(i==j_ continue ;
+if(arr[i] + arr[j] == target ) {
+return i , j ;
+
+}
+}
+]
+
+0n2
+
+thoda optimise kr skt eh  
+hum krteh jo number pdkenge use next wale se start krenge kyuki use phle wale toh khi na khi pair me aa hi chuke honge 
+toh less than 0 n2 ) se hi hoga
+but itna frk nhi pdega
+
+better solution is going to use hashing
+
+n2 -- > somewhere trim it out to n or nlogn 
+
+arr[] = [ 2,6,5,8,11]
+
+thought process is that ki me kuch iterate kr rha u toh m next element aisa dhund rh hounga jo target - current element ho 
+
+jisse ki current = next = target aaye
+
+store krleta hu ki saare kha kha pe store h 
+
+ab m starting wale 2 pe hu 14 bnanae ke liye 12 chahiye toh m dhudnunga ki khi 12 h kya ??
+
+i have 2 do you have 12 hashmap will tell no 
+in this case hum 2 ko store krdete h 
+
+i ++
+6 pe aagye ab hum check krnege kya 8 h hasmap pe ?
+nhi koi nhi daaldo 6 ko 
+
+next move to 5 and search for target - 5
+nhi h toh daaldo 
+
+next move to 8 and search for target - 8 that is 6 
+daaldo if nhi h toh
+
+return indexes 
+stop the iteration 
+
+and when array is finsh return 0 
+
+code 
+
+map<int , int >  mpp ; 
+for(int i = 0 ;i < n ; i ++{
+int a = num[i]
+int more = target - a ;
+if(mpp.find(more) != mpp.end()){
+retrun yes 
+}
+mpp[a] = i ;
+}
+return " no "
+}
+
+
+
+time complexcity -- > 
+0n if map works in O(1) unordered map ( best and avg case )( worst usme n bhi jaskti h toh n 2 bnadegi 
+0(n logn ) if map works in nlogn (  ordered map ) 
+
+
+
+optimal bhi n logn hi kar rha hoga 
+but what if map allowed na ho toh kese kr rhe hoge 
+
+slightly better approach is two pointer approach ( greedy approach ) 
+phle sort kr leta hu 
+
+[ 2, 5 ,6,8,11 ] target = 14 
+
+left pointer at 2 and right pointer at 11
+
+left + right = 11 + 2 = 13 
+wowwwwwwwwwwwwwwwwww
+ab aap 13 pe ho agr aap right se back jaaoge toh dekhoge ki m toh chota hojaunga kyuki piche chote h but what if me left ko bdhau toh m bdh rha houng total sum bdh rha hoga 
+
+toh at this scenario 
+
+when sum < target
+left ++
+now left + right = 16
+
+now it is more than 14 are merko chota krna pdega for that scene 
+right -- krdunga
+now left + right = 5 + 8 = 13
+
+chota hogya 
+left ++ 
+6 + 8 = 14 
+
+but if any moment they cross left or right cross
+this meant nhi milega kuch answer is no 
+
+but indexes ke liye aapko pairs me store krne honge 
+( 2,0) ( 6,1) (5,2) (8,3) ( 11,4)
+
+but variety 2 Jha indexes btani ho yeh optimall nhi h inta kyuki ek extra ds lg rha hoga jo ki shi nhi h 
+
+int left = 0 , right = n - 1 ; 
+sort()
+while(left < right ) 
+int sum = book[left} + book [right};
+if (sum == target) {
+return yes ;
+}
+else if(sum < target ) left ++ ; 
+else right -- ; 
+
+}
+return no ;
+
+time complexxcity is 0n 
+worst case bhi 0n hi hoga 
++ 0nlogn for sorting 
+
+sc -- > 0(n) sorted krte waqt use hoga 
+
+
+
+
+sort an array of 0 1 and 2
+x = [0 1 2 0 1 2 0 0 0 1]
+
+is array ko ort krna h 
+koi bh sorting algorithim use kar rha hounga 
+jese ki merge sort jo ki on logn kr rhi hogi 
+
+but agar mereko krna hota question toh m kuch is trh krta ki count 0 count 1 count 2 then fir place krdo 
+might probabbyl end in 0rder of 2n
+
+merge srot me extra space use horha hoga 
+
+what is better solution
+i take thre valraible s count 0 count 1 count 2 
+
+isne me count kar rha hounga
+count 0 containgn no. of 0 count 1 containing no . of 1 and etc  
+mannualry overwrite kar rhe honge 
+
+)
+
+phle count krne ke liye o n legegne
+and chote chote teen loop woh bhi total 0n lgayenge 
+
+total time complexcity is 0(n)
+
+cnt0 = cnt 1 = cnt 2 = null ; 
+
+for(i = 0 ; i < n ; i ++){
+if(a[i] == 0) cnt0++
+else if ai==1 cnt1 ++
+else cnt2 ++;
+}
+
+for (i=0 ---> cnt0) a[i]=0
+for ( i = cnt0 ---> cnt1 ) a[i]=1
+for i = cnt0+cnt1 ----> n ) a[i] = 2
+
+most optimal 
+
+dutch national flag algorithm 
+
+the algo will be using three pointer 
+[0 low-1] --> 0 extreme  left
+low--- mid-1] --> 1 
+[high + 1 , n-1 ] --> 2 extreme right 
+
+
+0      low-1  low     mid-1    mid      high  high+1    n-1
+
+0 0 0 0 0     1 1 1 1 1 1 1   random elements 2 2 2 2 2  2 2  
+                              unsorted 
+
+
+
+sort the unsorted portion humara kaam bnjayega kyuki use phle or aage ka sorted hi h 
+
+
+jo mera array h unsorted wala woh yhi hi arha hoga 
+
+0 1 1 0 1 2 1 2 0 0 0
+
+mid                high
+
+a[mid] == 0 
+a[mid] == 1 
+
+a[mid] == 2
+
+yeh teen type ki value hoskti h a[mid] pe 
+
+
+
+if a[mid] = 0 
+how do you make you sure ki yeh 0 sorted h 
+toh mereko btah jo mera hypothethical big array h usme left me saara sorted h righ me saara sorted h 
+and isko sorted hone kelyie left me hi khi hona chaiye 
+
+low jo q h big array me woh me apne 0 pe lgadu toh or unka 1 me lgadu toh bhi woh sorted hojayega
+this is still be sorted 
+ab element after mid+ 1 to high is unsorted 
+phle mid to high unsorted tha 
+ek ko humne swap krke bnadiya sorted 
+
+mid ko mid+1 krdena h 
+ab humne ek 0 extra kiya h toh low bhi toh bdhega ek step 
+
+low-1 bhi ek step bharega 
+low bhi ek step bharega 
+
+naam toh yeh hi rhega but step bahrenge  
+
+a[mid] == 0
+swap(a[low] , a[mid] )
+low ++ , mid ++ 
+
+pe yhe sb krna h chlo aage dekhte  ki agar mid==1 
+
+
+0 se mid - 1 tak sorted h bta h woh toh 
+ab jo mera h woh toh mid se attach h 
+
+0 low-1   low mid-1  mid   high  high+1   n-1
+0000        1111      1_____          2222
+
+yeh dekho 1 toh 1 se hi connect h 
+isme toh bas mid ko + krdo 
+
+a[mid] == 1 
+mid++
+
+if a[mid] == 2
+ab mreko kya na oga kya right side wale me rkhan hoga ?
+
+
+think logically what i m doing to make this portion sorted mereko jo woh bich wala use sorted krna h toh merko 2 ko last me rkhna hgoa iske jise kya hoga woh unke pass me hoga
+
+from start to end of this portion 
+jo bhi udhar hoga woh idhr aayega 
+ab jo 2 ki start horhi this woh ek phle se start hone lgi 
+and yeh wala partion bhi shrink hoga 
+
+yhe wala bhi 0 wala condiotn ki trh treat kiya jaayega 
+
+a[mid]==2 
+swap( a[mid] , a[high] )
+high -- ; 
+
+
+chlo dry run krte h jb bhi kroge toh aapko yeh hi visualise krna h diagram ko 
+     low low
+a[] - 0   1   1 0 1 2 1 2 0 0 0
+     mid mid                 high
+
+a[mid]=0 
+swap a[low] a[mid] jo ki same place pe h toh sawap toh hgoa nhi 
+low++, mid++;;
+
+a[mid]==1 
+mid++
+a[mid]==1;
+mid++
+a[mid]=0;
+
+swap krdenge mid and low low ko aage krdenge and mid ko bhi 
+01101212000
+
+00111212000
+
+ab mid 1 pe aajyega third 1 pe and low aajayega swxond one pe ++ hoke 
+
+mid==[1]
+move mid one place ahead 
+
+mid==2
+ise toh piche dalna tha and swap krna tha high se 
+a[mid] a[high] ko swap krna h 
+before
+00111212000
+00111012002
+
+aisa lgega
+high -- hojayega last tow sorted h 
+
+mid nhi bhday human ab aap dkehskt eho mid==0 h 
+iska mtlb piche lejake low se swap krna h 
+low++ ; mid ++ krna h 
+
+00011112002
+
+low pointing to first 1 
+mid is pointing at first 2
+high is pointing at last second 0
+
+a[mid] = 2 
+put at extreme right mtlb high se swap hojayega
+high -- hojayega
+mid same rhega
+
+00001110022
+a[mid]==0
+
+low se swap krdegne mid ko kyuki usne 0 pkda hau h 
+00001111022
+low ++ 
+mid ++
+
+mid is at last 0
+high is at last 0 
+low is at first 1  
+
+mid == 0 h 
+swap with low
+low ne 1 pdka hua h toh value change hoajyegi 
+
+00001111022
+00000111122
+
+low = fist 1 
+high is at last 1 
+mid is at first 2 
+
+ab mid high ko pass krkgya h mtlb hum us scenario pe phuch gye h ki sorted hochuka h 
+
+
+#include<bits
+
+int low mid high lerhe honge 
+
+khi mid high se bda na nikl jaaye
+while(mid<=high> 
+{
+arr[mid] == 0 toh glt h bich me 0 toh hon hi nhi chaiye 
+swap krdo low ke sath
+low ko bhi ++ kiya 
+mid ++ horha hoga
+
+else if(arr[mid] == 1) {
+agar 1 h toh thik h kuch mtlb kro mid ko aage bdhao or check krenge 
+mid++
+}
+
+
+else {
+mtlb 2 h 2 me kya krenge last em bhej rhe honge isme kya hoga last me bhejdiya hoga 
+udhar se swap krenge toh idhar high - 1 hoga 
+swap(arr[mid],arr[high]);
+high --;
+
+mid ko nhi hilayenge 
+mid ko hilane ki jrurt nhi h kyuki hum high ko km kr rhe ho high ke bracket ko left side bdharhe h 
+}
+
+
+
+}
+
+
+
+time complexcity 
+mid se high tk jarhe h 
+mid - 0 pe h high pe n pe 
+n length chl rhe h 
+at every step 
+hum teen case bnarhe h 
+ek mid==0 wala
+ek mid==1 wala
+ek mid==2 wala 
+
+entire of elgnth of n i have to sort 
+agar mid==0 chlayenge toh mid bharega ++
+mid++ mid is shringkin cause 
+mid ____________________ high 
+
+mid = 1 bhi mid ++ is shringking
+mid = 2 mid stayes here khi change nhi horha h
+if you moving high to left 
+
+in eac of the three step ek ek karke sort kar reh h 
+
+all the elements is sorted 
+in tc --> 0(n)
+sc 0 (1)
+
+
+
+new video 
+
+
+arr[] = {2 , 2 ,3 , 3 , 1 , 2 , 2 }
+
+
+find the eleemnet that appear more than n / 2
+ 
+
+imagine n = 8 it should appear more than 4 times 
+here length of the array is 7 so
+7/ 2 = 3 
+2 appears 4 times here toh yeh hi code hoga 
+
+chlo agar merkeo krna hota toh m kese kr rha hota
+me kya krta ek map bnaleta use krta aisa hi kuch krta 
+ya toh 0 n2 se kr rh hota ki har ka dhundna or unka count krna jisme me fir count kar ke return krdeta 
+
+chlo dono phle khud se implement krta hu fil video dekhunga
+| Feature            | `map`                         | `unordered_map`          |
+| ------------------ | ----------------------------- | ------------------------ |
+| Order              | Keys **sorted order** me      | **No order** (random)    |
+| Internal Structure | Balanced BST (Red-Black Tree) | Hash Table               |
+| Time Complexity    | O(log n)                      | Average O(1), worst O(n) |
+| Faster?            | Slower than unordered_map     | Generally faster         |
+| Header             | `<map>`                       | `<unordered_map>`        |
+| Use When           | Sorted data chahiye           | Fast lookup chahiye      |
+
+
+
+| Feature            | `set`                  | `unordered_set`    |
+| ------------------ | ---------------------- | ------------------ |
+| Order              | Sorted order           | No order           |
+| Internal Structure | Red-Black Tree         | Hash Table         |
+| Time Complexity    | O(log n)               | Average O(1)       |
+| Duplicate Allowed? | ❌ No                   | ❌ No               |
+| Header             | `<set>`                | `<unordered_set>`  |
+| Use When           | Sorted unique elements | Fast unique lookup |
+
+
+
+dono code meen tr kar liy h 
+
+yhe better approach ahshign wala 
+
+    unordered_map<int,int> mp = {};
+
+    for (int i = 0 ; i < x; i ++){
+        mp[arr[i]]=mp[arr[i]]+1;
+
+    }
+    for (auto it : mp) {
+    if (it.second > x/2) {
+        cout << it.first << endl;
+        break;
+    }
+}
+
+yeh brute force wala 
+
+    for (int i = 0 ; i < x ; i ++){
+        int count = 0 ;
+        for (int j = i ; j < x; j ++){
+            if(arr[i]==arr[j]){
+                count ++ ;
+            }
+        }
+        if(count > x/2){
+            cout << arr[i];
+        }
+    }
+
+chlo ab striver ki sunte h
+
+
+brute force approach 
+me ek ek ko pdkunga or search krunga and count ++ krunga 
+first pickup and scan trhough the entire array 
+sbko pdke ke unka pair dhundenge or is chij me count ++ krte rhenge 
+
+for(i=0; i < n ; i ++){
+cnt= 0 ;
+for(j=0 ; j < n ; j ++ ) {
+if(arr[j] == arr[i] ) {
+cnt ++;
+}
+
+if(cnt > n/2) return arr[i] ; 
+
+}
+}
+
+yeh to mee wala hi trika hogyaa
+hume hashing use krna chahiye for better watch hashing video for mor info 
+dekho isne bhi mere wala trika btaya khi m genius toh nhgi
+
+
+i will declare a hashmap 
+with element and ocount where element is a key and count is value
+
+2 , 2 
+3 , 1
+4 , 2
+
+aise krke horha hoga 
+
+ek baar on kal loop chalke fill kr liya aab aapko iterate krna h map p e
+inoprder o find that element jiski occurrence n/2 se jyada ho
+
+code
+map<int,int>
+for( i = ; i < v.size() ; i++{
+mpp[v[i]]++;
+}
+
+isne aise likha h mene 
+mpp[v[i]] = mp[v[i] + 1 ; kuch aisa likha tha same hi h 
+
+for ( auto it :mpp) {
+if(it.second > v.size() . 2 ) {
+return it.first ; 
+
+}
+}
+return - 1;
+}
+
+
+
+🔵 map (Ordered Map)
+
+👉 Implemented using Red-Black Tree (Balanced BST)
+👉 Elements stored in sorted order
+
+Operation	Time Complexity
+Insert	O(log n)
+Update	O(log n)
+Search	O(log n)
+Delete	O(log n)
+Traversal	O(n) (sorted order)
+Why log n?
+
+Because tree height ≈ log n.
+
+
+🟢 unordered_map (Unordered Map)
+
+👉 Implemented using Hash Table
+👉 Elements stored in random order
+
+Operation	Average TC	Worst TC
+Insert	O(1)	O(n)
+Update	O(1)	O(n)
+Search	O(1)	O(n)
+Delete	O(1)	O(n)
+Traversal	O(n)	O(n)
+Why worst case O(n)?
+
+If many elements collide into same bucket.
+
+| Feature           | `map`          | `unordered_map` |
+| ----------------- | -------------- | --------------- |
+| Order maintained? | ✅ Yes (sorted) | ❌ No            |
+| Insert            | O(log n)       | O(1) avg        |
+| Search            | O(log n)       | O(1) avg        |
+| Safe worst case   | ✅ Yes          | ❌ No            |
+| Faster generally  | ❌              | ✅               |
+
+
+
+
+
+agar aap same question unordered se kroge toh 
+tc hogi 
+
+O(n)+O(n)=O(n)​
+O(n for each insertion har insertion 0(1) legi n insertion take 0(N) 
+second loop o(n) average case but idher worst o(n2) ja skta h 
+
+if using ordered map 
+first loop 
+runs n times
+takes logn in insertion so for n elemetns insertion becomes nlogn
+
+second loop
+
+loop runs o(n) 
+total - > 0(nlogn) + 0(n) = 0(nlogn)
+
+
+back to question 
+
+tc by unordered is 0(nlogn) + 0(n)
+sc --> 0(n) 
+space lg rhi  h jo ki glt h ek nya 0(n0 ki space lg rhi h 
+
+and isse acha krne ke liye we can use moore's voting algorithm 
+you cant think it by own you have to first know it to move it forward
+
+arr[] = { 7,7,5,7,51,5,7,5,5,7,7,5,5,5,5]
+
+dry run 
+two variable
+el 
+cnt = 0 
+intiality el is not intialised and coutn is initailesed is 0 
+
+code
+
+int function () {
+int cnt = 0  ; 
+int el ; 
+for ( int i = 0 ; i < v.size() ; i ++){
+if(cnt ==0 ) {
+cnt = 1 
+el=v[i];
+else if(v[i] == el ) {
+cnt ++ ;
+}
+else {
+cnt -- ;
+}
+}
+}
+
+
+int cnt = 0 ;
+for (int i --> size tk ) 
+{
+if(v[i] == el) cnt ++;
+}
+if(cnt > (v.size() / 2 )) {
+return el ;
+}
+return - 1 ; 
+}
+
+time complexccity 
+whenever it the simple loop the time complexcity is 0(n)
+and space complexcity is 0(1)
+
+j
+
+
+
+
+
+we have not taken any array 
+
+iterate krte h 7 pe aayenge 
+cnt = 0 h mtlb abhi tk kuch array nhi liya h humne 
+for 7 cnt = 1 
+
+maanlete h 7 my answer h or count 1 h 
+
+next fir dekha 7 aagya 
+count = 2 hogyi 
+
+next fir 5 aagya hum reduce 1 krdenge 
+count = 1 
+next fir 7 count + 1 krdenge 
+count = 2
+fir 5 decrease
+count = 1
+fir 1 decrease 
+count = 0
+
+
+yha tk 0 aagyi mtlb decrease hogyi 
+
+
+this is an array  = [7 7 5 7 5 1 ]
+
+d= 7  3 times +++ hua h 
+e times --- hua h 
+tbhi jaake toh zero aaya h 
+agar sirf isse array ko pkdengee toh hum khskt eh ki 7 toh mera majority element nhi h is aarray me couse voh n.2 se jyada hota oth countatleast 1 ata h 
+
+back to my whoel array usme m dkeh parah u ki count 0 h isse toh yha tk ka answer nhi aaya age ki bhi umeed nhi aane ki 
+toh ab me kya krunga next elemente ko hi as el pkdunga
+now el = 5
+count = 1
+next 7 
+cnt = 0 
+next 5 
+cnt = 1
+next 5 
+cnt = 2 
+next 7 
+cnt = 0
+
+yha pe bhi 0 hogya mtlb 5 se bhi koi umeed nhi rkh rhe honge aage
+jinko bhi mene majority maano woh kuch hi pal me canceled hogye similar elements see 
+
+toh dominate toh koi nhi kar reh h a 
+sbke aalg elements h jo khtm krderhe h ek dusre ko 
+
+now next elment ko count lete h 5 
+element 5 
+count = 1 
+element = 5 
+count =2 
+aise krte h krte end of array tk count = 5 hojayega 
+
+array ki length 5 h 
+last me 5 h  toh aaya h 4 baar 
+
+isse phel 5 baar aaya 
+total aaya h 9 times 
+
+other 5 times it got cancelled 
+4 times not cancelled 
+
+
+5 is my majority element 
+step 1
+apply moores voting algo 
+step 2 
+and verify 
+jese aapko bta cha ki +ve count ki wjjh se 5 h 
+and in that case hum verify krleng 5 ko linearly count krke 
+jisse exact bhi bta chl jaayeggga ki yeh n/2 h 
+
+
+
+kadanes algorithm 
+maximum subarray sum 
+new video
+
+[-2,-3,4,-1,-2,1,5,-1]
+
+maximum subarray where sum = 7
+
+consecutive elemett hone chahiye 
+yeh toh woh hi old question hogya maximum sub array sum with k 
+wala jisme brute force 0(n2) h 
+and optimal woh tha two pinter wala jo ki negative pe nhi chlta h 
+better woh tha jisme hashing use krte the prefix sum jo mereko yaad nhi h 
+
+try out all subarray in brute force 
+
+[-2,-3,4,-1,-2,1,5,-3]
+___
+   ___
+
+
+maxx =int_min ; 
+whi brute force wala btarhe his video me
+for(i = 0 --> n ) {
+for(j=i ---> n ) {
+{sum = 0
+for(k=i--> j ) {
+sum += arr[k]
+maxx = max(sum , maxx) (aise krke pkd liya max )(initaly maximum ko int-minimum rkhna h ) 
+
+}
+}
+}
+
+yeh brute force btaya tha striver ne 
+
+better me isime jo woh third loop h use reduce krna h 
+
+sum + = arr[j]  ;
+
+toh on3 se on2 hojayega
+
+
+now move to most optimal solution 
+
+to solve this we re using most optimal ones that is kaddanes algorithm 
+
+maxi = int _min
+sum = 0
+
+start iterating array
+
+-2 -3 4 -1 -2 1 5 -3 
+
+while iterating
+sum = -2 as first is -2 
+when sum becomes -2 it got compared with maximum 
+
+move forward 
+kya -2 ko leke jaan chahihye nhi isse aage nhi leke jaan chaihiye 
+
+-2,-3 give sum of - 5 
+but normally toh -3 hi arha h 
+5 < -3
+
+toh - walae sum ko  hum aage nhi leke jaayenge cause aisa sum toh mere sum ko just hamper ya bekar kr rh ahogah 
+sum > 0 wale ko sum = 0 hona pdhega aage bdhne ke liye 
+
+max = -2 h abhi 
+next element pe jaayenge sum =0 krke 
+sum = -3 hoga
+comparisoin hogi 
+sum or max ki -2 bda h -3 se toh no replacement the max
+before moving sum ko 0 kro - wale ko leke chlne se kuch nhi hone wala 
+
+starting from 4 max = 4
+sum = 4
+next is -1
+sum = 3 
+il stillll have value ;  minus toh nhi hua na isliye like chlenge 
+
+move to -2 
+sum is now 1
+positive h still hum ise leke chlege 
+
+move to 1
+sum is now 2
+leke chlenge 
+
+move to 5
+sum is now 7
+and this 7 is new maxiumum as last maximum is 4 
+
+now move to -3 
+sum is now 4
+max nhi update hua 
+
+dekho hum 4 ke baad minus the but unhe bhi aage leke chle jisse kya hua hume largest element mila and sum pe +1 ka support aaya aise - horha h koi nhi but agar positive h toh use leke chlo 
+
+thats how you get maximum sum that is 7
+
+code
+
+#inlue <bits/stdc++.h
+
+maxsubaraysum(int arr[] int n ) {
+
+for int i=0-> n i ++ ) {
+sum+= rr[i];
+
+
+if(sum>maxi){
+maxi = sum ;
+}
+if(sum<0){
+sum = 0 
+}
+
+
+including empty sub array 
+inhone question me kah h ki aapko koi bhi negative ka nhi milta toh aapko 0 hi return hi krna h 
+jb aako koi bhi negative nhi derha toh aise krna h yeh toh huamra code kar hi rah h 
+
+can you print the subbarray with maximum sum 
+
+anyofthe sub array 
+
+for this kuch change krne honge and mee hsiab se meet genious ke hisab se jah pe 0 hua h wha pe i bitha do 
+and jha pe last j h ya kuch h voh ending pe lelo and isse aapko rnage miljaayegi
+
+striver ne bhi yeh kha ki jha se count start horhi h voh 0 hi h 
+
+whenever i m starting to form new subarray i m alway starting with 0 
+
+if summ == 0
+start = i ; 
+
+ans start = -1 
+ans end = -1
+
+
+code -- > 
+
+maxsubaraysum(int arr[] int n ) {
+
+
+for int i=0-> n i ++ ) {
+if(sum==0) start = i ; 
+sum+= arr[i];
+if(sum>maxi){
+maxi = sum ;
+// yha pe hi hum max assign kr rhe h toh yhi pe hi rhega j 
+ansstart = start , ansend = i ; 
+}
+if(sum<0){
+sum = 0 
+}
+
+
+
+time complexcity -- > o(n) 
+sc -- > o(1)
+
+kadane s algor ko one line me khna ho toh hum aise khskte h h ki 
+ek aisei algor jo sum ko + krti h but sum ya usko tbhi aage leke jaati h jb sum -ve me na ho agar usm -ve me h toh sum - 0 hojata h and fir hum aage bdhte h  
+
+
+
+new algorithm 
+bes tiem to buy and sell stocks
+space optimisation ka dhyan rkhan h , 
+
+arr[]=7,1,5,3,6,4
+
+if you sell or buy stock on any of the day
+
+the profit is maximum 
+toh yeh thoda two sum jesa hogya na 
+can be said two minus
+
+apko do pair pdken h jo subtraciton pe highest aaye
+and jo sell hoga woh bda hoga buy waale se
+
+buy --> 1
+sell --? 6
+
+what is the profit you made is 5 
+
+maximise the profitt our aim is
+
+buying humesa sellign se phle hona chaiye 
+to solve the porblm aapko ek aporach dkehni hoig 
+arr[]=7,1,5,3,6,4
+ ki aap last ki 4ht wali pe bech rh ehoge toh aapko kb kharidna chaiyhe 
+
+you are buying on wehre price is minimum ; 
+715364
+
+jese aap 3 rupe ka 4th din pe ler ho toh aap 1 se teesre din ke bich me hi khari d reh hogge 
+
+
+for 1 minimal is nothing 
+for 5 minimal is 1 
+for 3 minimal is 1 
+for 6 minimal is 1 
+for 4 minimal is 1 
+
+
+
+6-1 =5 
+
+if i can keep a track of minimal 
+my job is done 
+
+mini = a[0] intially
+profit = 0 ; initialy 
+
+for i = 1 ; i < n ; i ++ {
+
+cost = a[i] - min ; sell - minimuma(jispe kharida h ) 
+profit = max(profit,cost) // profit nya wwala pdke 
+mini = min(mini , a[i] ) ; 
+keeping th etrack of all minimal // mtlb ab mene sbse chota pkd liya h ki itne chltne pe sbse chota yh tha aba age merkeo minimal nikalne ki jrurat nhi h bas sidha - krdunga 
+comparison toh hoga but pichal minimum pkda jaayega 
+}
+
+new videoo 
+
+rearrange array elements by sign
+
+3,1,-2,-5,2,-4
+
+
+3,-2,1,-5,2,-4
+
+equal positive or qual negative elemnts diye hoge jisme size of array  even rhega humesha 
+input can eb any of the given order
+
+our task is to arrange by positive 
+something like 
++-+-+-+-
+
+jis order me diya h voh order maintain rhega agar merko krna hota toh me new array bnek do pointer se krdeta h 
+but with in array 
+within array toh smjh nhi aaya merko like kese hoga 
+
+brutee force 
+
+pos []
+neg []
+of size n/2 
+
+i ll iterate in the entire array 
+if pos push in pos
+if neg push in neg 
+
+pos and neg sort filter hogye in 
+
+in terms of indexing where are the positivn it is at positive indexes 
+and negative at negative indexes 
+
+for ( i = 0 ; i < n.2 ; i ++ ) [
+arr[2i] = pos[i] ;
+arr[2i+1] = neg[i];
+}
+
+ek hi loop me krdiye array fill 
+
+o(n) for filling the po and neg aray n/2 + n/2
+0(n) for fxigng upth eold array n/2+ n/2 
+
+
+
+kya hum is extra spac ko optimise kar skt ah 
+
+
+that is optimal 
+observation all the optimal elements have tp be in even observation 
+frst negative at 1st index 
+
+i traverese the original array and say kii aap positive ho first pe aajao 
+
+ab next positive aata h toh 2nd wale position pe karskta hu positiyve ko 
+
+simiilar next avaialble space negative ke liye bhi 1 3 5 wale honge 
+
+we are not rearranging in the oritginal array hum isme bhi new array use kar rhi h mene bhi toh yhi hi kha tha same to same but yeh kese optimal merkeo toh messy lag rha h 
+
+but yeh 2n ki jgh n me hsootka h kyuki one pass me n chla jaata h 
+tc-- 0n
+sc --> 0(n) 
+
+sc fir bhi n hi rhi 
+
+int n = nums,size()
+vector <int> ans(n,0);
+int pi = 0 ; int ni = 1 ; 
+for (int i =0 ; i < n ; i++ ){
+if(nums[i] <0){
+
+// agar negative 
+ans[negindex] = nums ;
+negindex += 2 ;
+
+}
+else {
+ans[posinde] = nums[i]
+posindex += 2; 
+
+}
+
+return ans; 
+
+hum dusri array me fil kr rhe h 1 plus krke 1 balnk jgh chod ke 
+
+jo phle aayega woh 1 hoga or uska next 3 hojayega
+jo next aayega woh 2 hoga or uska next 4 hojaayega
+
+
+we are solving one more variety 
+
+its having positve and negaitve but idhar equal hone ke koi chances nhi h 
+arr[] = [ 1,2 ,-4,-5,3,6]
+
+dekho jese 2 negative and 4 positive h 
+isme 
++-+-+++++
+
+aise krna hoga 
+// aisa kuch hoskt ah ki jitne -ve h sir f unke leiye alag loop chlega or remaining chalen ke liye alag loop chlega 
+
+dekhte h striver kya pdhata h 
+pos!=neg
+pos>neg
+
+neg>pos
+
+optimal solution piche wala ka use nhi krkst eh kykuki woh ban isi basis pe tha ki alternative pe chlana h 
+
+for this we fall back to brute forcee 
+but me optimal krskta hu nhi krskta  new array me 
+me jo kh rha hu voh nhi ho paayega cuase negative find krne ke liye loop chlega laag se ; 
+count diya ho toh hoskta tha logic likha jaskta tha but ab nhi 
+
+
+
+toh according to striver brute force kya h 
+filter krlo
+pos[] = [2,3,4,1] 
+neg [] = [-1,-3]
+
+for first two element i will follow the same pattern 
+
+for(i=0; i < z ; i++){
+arr[i*2] = pos[i]
+arr[i*2 + 1] = neg[i]
+}
+
+pos == neg  toh yhe tha 
+pos > neg   ke baad ky hoga 
+
+ind = 4
+for(i=2 ; i<pos.size; i++)
+{
+arr[inex]=pos[i]
+ind++;
+}
+
+kya hoga ki jo remainng honge woh vese hi fill horhe honge 
+
+vector<int> alternatenumber(vector<int>&a){
+vector<int> pos neg ;
+int n = a.size() ; 
+for (int i = 0 ; i< n ; i ++)
+{
+if(a[i] > 0){
+pos.push_back(a[i]);
+}
+else {
+neg.push_back(a[i]);
+}
+
+
+ab kya kiy ahuemne alalg lalg list banli isi ki jisme kya hua values sort hogyi 
+
+if(pos.size()>neg.size()){
+
+// isme kya h ki pos jyada h negative km krna h ; 
+// negative ka mtlb jyada h to hume line wise chlna h jitne negative h utne tk 
+     for(int i = 0 ; i<neg.size(); i ++){
+        a[2*i] = pos[i];
+	a[2*i+1] = neg[i];
+
+// pos or negative fix bhardenge aalg alag uspe 
+	
+}
+ab remainign pe positive bhar rhe honge ;
+int index = sizeofnegative * 2 ; yeh btyaega ki kinte se start krna h 
+for(Int i = neg.size(); i <pos.size())
+{
+	a[index]=pos[i];
+	index++;
+}
+}
+else{
+// yeh woh wale senario smjh rha hopga jha negative jyada h and equal too h 
+
+// isme bhi whi do loop chl rhe honge 
+     for(int i = 0 ; i<pos.size(); i ++){
+        a[2*i] = pos[i];
+	a[2*i+1] = neg[i];
+
+// pos or negative fix bhardenge aalg alag uspe 
+	
+}
+
+if agar woh equal h do niche wala array kbhi run hi nhi hoga kyuki posi.size== neg.isze h second wala loop chlega hi nhi 
+similary upar wale me bhi yhi hi hoga 
+
+ab remainign pe negative bhar rhe honge ;
+int index = sizeofpositive * 2 ; yeh btyaega ki kinte se start krna h 
+for(Int i = pos.size(); i <neg.size())
+{
+	a[index]=neg[i];
+	index++;
+}
+
+
+
+
+
+
+}
+
+return a ;
+
+}
+
+
+
+
+time complexcity of 2nd variety 
+
+tc --> o(n) to beg all posivitve and negative 
+       o(m(pos,neg)) 
+	minum time it returns ntlb yeh utna chl rha hoga jo chota hoga unt epe hi hclega 
+        agar inka minimum 0 h toh mtkb leftover n hojayengee
+	max askta h n/2 n/2 ho dono toh n/2 chl rha hoga jisme n element place krega har iteration pe do ko rkhta h na but in this leftover 0 hojeyge 
+       o(leftover) 
+
+
+toh fill krne ki toh 0n final h but inki h jo if else wala case h inki worst hogi 0n jb saare hi positive or negative honge 
+
+0(N) + 0(N) --> 0(2n) 
+
+in  first variety tc tha o(N) + 0(n.2)
+
+
+new video 
+
+next permuation
+
+arr[] = [ 3,1,2 ]
+
+you have to find the next permutti in the array 
+
+
+therse 3 integer can be rearrange by themselves like
+123
+132
+213
+312
+321
+
+how many possible permutioan or rearrangement possible is 3! 3 facotrial 
+
+question is to find next permutation
+jese dictionary order me permutaion likhe toh aise likh rhe honge 
+123 < 132 < 213 < 231 < 312 < 321 
+
+where does 312 appear at second last of permutaion serries 
+toh question isika aayega ki aapko next permutation btanhi h 312 ki jo ki hoga 321 in this sceanrio 
+
+if arr[321] hi diya ho toh uska next hoga hi nhi  toh we fall back to the next order 
+
+generate all possible permutaoin and then linear search se search kr she honge 
+
+
+video pause krte h dkehte h ki permutation kese genrate hoti h 
+
+[312]
+ sort kro 123
+ phla bn gya 
+last two digit swap 132  
+fir usspe phle ki do digit swap 213
+fir last ki do swap 231 
+fir first ki do swap 
+fir last ki do swap 
+
+aise krke hi bnare honge mereko jyada idea nhi h aage ka kya krna chahiyee 
+ 
+or aise genrate knr abhi ineeficeint lg rha h 
+
+
+generate all permutation via recursion
+
+
+time complexcity 
+if n number toh n! permutiaon
+
+{ n! * n } to generate permutaion
+
+recursion pdhna pdegga next eprmutaion ke liye jo ki m wha se pdh ke aaunga but abhi ke liye 
+
+ek stl librabry h next_permutation(a.begin,a.end()) a
+
+toh yeh saari permutation geneerate krke degi 
+
+return A 
+
+itna hi code hoga bruteforce
+
+brute se toh aise direct kar rhe honge but 
+
+interviewer can tell can we emplement in better way C++
+
+if cpp toh aap yeh stl hi btareh honge 
+
+arr[] = [2,1,5,4,3,0,0]
+
+observation
+
+raj 
+rax
+rbx 
+
+in english dictionalry
+raj < rax < rbx 
+
+there is a long prefix thath match ra and then comparring with j and x ; 
+
+num [] = [ 2,1,5,4,3,0,0]
+
+if i try to match everything we get eveything sb same aayega
+
+-1 tk match krenge toh alst ka naumber pe chnages ki chut h 
+-2 tk match krnege toh last ke two number pe changes ki chutt h 
+
+
+longerprefix what i m looking for 
+
+2 1 5 4 3 0 0
+
+next permutation mtlb bda 
+aap smjh rhe ho humne jb list of number likhe the usme next permutation pichle wale se bda tha hummen bhi isi me aisa hi krna hoga ; ki alago aisa design ki just bda ho jyada bhi nhi 
+
+
+
+maantlo 2154300 h 
+        21 ko pdkliya next se kitni bhi combianition bnaod
+	21 45300 et etc toh in scenario me
+
+	aap kbhi 54300 se bda nhi krpaauoge inse chote hi mil rhe honge
+	5 se bda aane ke lyie 6 chhaiye 
+
+
+	you have you ned greater than 5 6 7 jo h hi nhi 
+	among 54300
+	bda aa hi nhi skta 
+choose 2
+	154300
+	453100
+
+bhot saari arrangeements hoskt i h 
+but     004531 
+nhi likh skte kyuki initally wha 1 tha hum 0 nhi likh skte h kyuki chota nhi likhna 1 pe
+
+
+
+you are matching till here 2
+2145300
+
+ab 2 match hogya 1 se bda hi likhna h 5 toh sidha nhi likhenge 
+we can write 
+25
+23
+24
+20 nhi 
+
+in chaaro mese konsa likh skte h 
+
+greater than 1 but less than 5 toh starting hoyegi 3 se
+
+215 ko pkdoge not posible 
+
+215 cause uske aage h 4300 and 4 se bda toh kuch h hi nhi iske aage 
+similarly 
+21 bhi possible nhi hn 54300 h 5 se bda toh kcuh hi hi nhi 
+2 ke baad dpossible h kyuki 154300 me 1 ke baad bhot kuch h but 1 se up 5 se down 
+
+hum ko yeh hi break point discover krna h 
+
+ki kha pe isse bda nhi milna h 
+
+woh hi pivot dhundna h 
+
+   i i+1
+2  1  5  4   3   0   0
+
+find the breakppoint
+
+what was the next set of observation
+
+who did we take instead of 5 kya lena h hume 
+
+2154300
+
+1 ko replace krna h 0 lenge bhot chota h 5 lenege bhot bda h kya leeee
+toh hum 3 lenge 
+23
+
+first obeservation longer prefix mathch a[i] < a[i+1]
+aisa scenario jha pe chota nhi mil rh ahog a
+
+second observation find > a , but the smallest one 
+so that you stay closee  ;
+
+third observation to make it samllest try to place in a sorted order
+
+
+5 4 1 0 0 
+25 , 24 ,23 teen posibiliteis h 
+23 final h itna hi left h 
+23 is greater than 21 
+what the prioerity ki keep the things as small ass possible 
+
+2 3 > 2 1
+
+can we placed like  iska mtlb just next wala smjh aagya toh aaap aage ke just sorted likhd doge
+23 0 0 1 4 5
+
+
+now to think of the algorihtm 
+
+apko woh peak point dundhna h jo replace na hoske ussse bda na ho , bda nhi hoga toh next permutaiton nhi milega siae hi aap last se trim krte aaoge ; maylbe first tk aajaoa 
+
+
+number between 
+ab yhe quesion dekh teh isme kha dip lg rha h ki kiske baad replacable 
+
+
+1 2 3 4 5 
+
+n-2 i is the last syntax 
+ 
+
+
+5 4 3 2 1
+
+2154300
+
+let index = -1;
+for(i=n-2;i > =0;i--){
+if(a[i]<a[i+1]{
+jha usse next wala bda h mtlb bda h dip mila h in this scenario bda ya next permutaion possible h 
+
+index = i ; for storing the value of i
+break ; 
+
+}
+}
+
+and intially -1 h agar -1 hi aajta h toh mtlb decreasing order me h ab bda mila mushkil h toh sidha last se first pe chle jaao whi hi next permutaiotn h 
+
+
+
+if three is no dip reverse is the answer 
+if(ind= - 1)
+{
+reverse(arr)
+}
+
+ab index mil gya h ab hume someone greater than arr[index] but has to be closest 
+fir whi hum last se chlenge are you greater are you greater aise aise krke min ko pkdte hhuyee 
+
+find this greter and swap with athe arr[index] jo humara pkda hua index h 
+for(i = n-1 ; i >= inde; i--){
+if(arr[i] > arr[index] {
+swap(arr[i] , arr[index] 
+break ;
+}
+but inhone sihda maanliya ki first occurence hi yeh h kya bta aage or choti arhi hoti 
+
+
+2154300
+se hoggya
+2354100
+
+ab inhone kha h ki jo 23 ke baad wala h toh woh last se dkhoge humesha toh woh increasing hi hoga 
+aisa kyu smjh nhi aaya hn asia isiliye hoskta h cause 
+abhi hum ttraverse krte huye aaye h tbhi jaake isi breaking point pe pkda h 
+
+toh agar hum reverse krdenge toh uska mltb sort krna hi hoga 
+rev(arr,index+ 1 , n-1) index se lek last index tk 
+
+
+teeno observation krne ke baad yeh possible hua 
+
+
+new quesion 
+
+product of aray excpt self 
+
+nums = [ 1,2,3,4 ]
+ans = [24,12,8,6]
+
+ans return krna h 
+ith pe product hoga except itsel 
+
+i = 0 pe i = 0 ko chod ke saare ka product hogaa 
+
+first approach toh hum leskte h ki sab ka multiple dhund lo 
+
+nums = [ 1,2,3,4]
+
+
+mod = 24 
+
+ans kese fil rhe honge 
+24 ko divde krdenge 1 se 2 se 3 se aise line wiese divde krdenge 
+toh isse humare desired answer aajayega
+kyuki merko self chodna tha toh m pure ka nikalke self divideo kr rha hu toh woh hi arha hoga 
+
+
+// twist we are not allowed to use the division method
+
+brute force 
+
+ek loop chl rha hoga dusra loop chl rha hoga 
+dusra loop uska ouptut derha hoga remaining ka mult krke larah hoga starting se 
+; 
+
+apna same element count nhi krn abas mult krte waqt usme continune kar rhe ho 
+
+for(i = 0 ; i < n ;  i ++ ) {
+prod = 1; 
+for(j = 0 ; j < n ; j ++ ) {
+if(i!=j) {
+prod*=num[j]
+
+}
+ans[i] = prod 
+
+}
+
+without division humne yeh multiplication se kiya h  but this is not optimal appraoch 
+ eko or choti si optimalsiation kr skt eh yha pe ki we dont really need the product variable 
+
+ans[i] *= nums[j] direct krsktskte h if saare anss[i] 1 h toh 
+
+uske liye hum aise likh bhi rhe honge 
+
+vector<int> ans (n,1);
+
+toh optimise hroah hoga yeh  
+but aap question dekhoge oth n >=105 h toh aise scneario me n2 fail hogaa
+
+
+we should opitise this approach 
+
+or hum 0(n) me krenge or inhone kha h ans array toh create hoga usse sc me count nhi kr rhe hogne hum 
+
+
+tc --> 0(N) and sc --> 0(1)
+
+
+nums = 1234
+ans = [    ]
+
+is problem ko linear time me solve kreng e
+
+for i = 2  baaki saare number ka product hona chaiye 
+
+i = 0 ,1 and i = 3
+
+similarly saare or index pe bhi aise hi horhe honge 
+
+har index ke liye uske saare left ke number ka and irght ke saare number product calculate krna h 
+
+jo phle arha hoga woh preffix hoga
+jo baadme arha hoga woh suffix hoga 
+
+
+prefix calculate krne ke liye ke simple loop lgayenge 
+
+toh ek prefix array banyehne 
+
+og array = 1 2 3 4 
+preffix = 1  1 2 6
+
+us index se phle aaanee wlae saare number ka mutliplication 
+
+time complexcity for doing this in 0(n) 
+
+to find prefix loop hoga kuch is trh 
+vect <int> prefix ;
+
+for( i = 1 ; i < n ; i ++) {
+
+prefix [i] = prefix [i-1 ] * nums[i];
+
+purane saare number ka multiplcation wiht cureent ka multiplle
+
+}
+
+
+2nd step hum suffix nikal rhe hongee
+
+suffix ith right side number ka product 
+ 1 2 3 4 
+yeh chij hum backward loop lgake krenge 
+
+last ke liye koi suffix nhi 1 likhdenge
+n-1 keliye suffixt hoga nth elemnet that is 4 
+n-2 ke liye suffix hoga n-1 * n element 
+
+og array 
+1 2 3 4
+suffix 
+
+12 6 4 1
+
+
+suffix ka loop kese chlege 
+
+for(int i = n ; i >= 0 ; i--){
+
+suff[i] = suff[i+1] * nums [i+1]
+
+isse phle ka sum * multply by just past hone wale ka sum
+
+}
+
+
+yeh bhi 0(n) me chla h 
+prefix 0(n) suffix 0(n)
+
+third step abloop lgake answer nikale 
+
+ans[i] = p[i] * suff[i]
+
+og array
+1	2	3	4
+suffix
+24	12	4	1
+prefix
+1	1	2	6
+
+ans 
+24	12	8	6
+
+jo hoga woh kuch aisa dikh rha hoga 
+suffix [i] * prefix[i] 
+
+
+total time complexcity in this approach is 
+0(n) suffix 
+0(n) prefix 
+0(n) ans
+
+sc --> do array extra li h 
+
+
+yeh code submit toh hojayega but not a good aprroach to do so 
+
+
+
+more optimal solution 
+
+kya prefix or suffix ko alag se store krwana jruri h ?
+
+
+
+
+at the end mereko ans[i] = prefix i * suffix i
+
+
+preifx kya hota h phli value se calculate kiya jaskta h 
+
+toh isko us loop ke sath merge kiya ja skta h jo loop ans [i[ ko bharne ke liye responsibel h usi loop ke sath merge kiya ja skta h 
+
+jisme hum store nhi krwayenge sidha ans [i] uski madad se nikal warhe honge 
+
+phle store kr rhe h fir multiply kar rhe h sidha hi multiply krde toh humara extra vecotr bch skta h 
+
+
+ek prefix lelete h 
+
+int prefix = 1 ;
+
+nums 
+1	2	3	4
+
+ans 
+
+1
+
+intial ko toh 1 hi rkhenge 
+next number kya hoga purana prefix * multiply by the purani value 
+1	1	2	6
+
+direct prefix calculation ans[i] me krenge 
+
+
+
+
+code kuch is trh horha hoga 
+
+int n = nums.size() ; 
+
+vector<int> ans (n,1);
+
+for(int i = 1 ;i< n ; ++){
+ans[i] = ans[i-1] * nums[i-1]
+}
+
+prefix ko ans me hi calcualte krwadiya 
+
+
+pichli baar jo hum code tha woh kuch is trh tha 
+
+for(int i = 1 ;i< n ; ++){
+prefix[i] = ans[i-1] * nums[i-1]
+}
+
+ab suffix ke liye kuch krna hoga ;
+alag se calculate krek multiply mt kro sidha krdo multiply 
+
+suffix ke liye ek backward loop chalyenge or isi direction me humare ans me suffix ko mulitply rkte huye chle jaayenge 
+
+suffix = 1 ; 
+
+suffix kya hoga pichle wala number multiply by suffix ki pichli valuee
+
+for( int i = n-2 ; i < 0 ; i ++) {
+direct toh ans me nhi krpayenge cause ans me or bhi values h 
+
+
+int suffix = 1 ;
+for(int i = n-2 ; i > = 0 ; i --) {
+suffix = suffix * nums[i+1]
+
+suffix and agla number
+ans[i] *= suffix ; 
+
+
+return ans
+
+
+bakcwar jaake hum jo suffix = 1 
+index n - 2  = suffix * nums [] 
+
+index n -3 =
+
+time complexcity big (n) 
+space complexcity lgi h big() n 
+
+
+
+new video 
+
+leader in an array 
+
+everything on the right is smaller
+
+
+10 22 12 3 0 6 
+
+me kisko leader maan rha hounga isme me isme 22 ko leader maan rha hounga
+
+vese toh 22 leader hand last element bhi leader h cause usme bhi kuch aage hota nhi h 
+
+
+isme leaders honge 
+
+[22,12,6]
+
+dekho according to me ek toh max pkka leader hoga and ek last element pkka leader hoga 
+
+and then shyd max se pichle wale ke liye koi condition lgarhe honge 
+
+leaders in sorted fashion me bhi maang skte h 
+
+6 ,12 ,22
+
+collect all first 
+
+brute force o n2 me hoskta h ki aap har ek elemenet pdko and uske aage dhundho kya isse koi bda h nhi toh use ek array me append krdo that is brute force
+
+mene toh brute force kriya and optiml 0(n) me krek push krdiya ab dekhte hki eh kya pdha rhe honge 
+
+in burte force striver linear search krne ko kh rha h  sb ke liye har element 
+
+for i -- > n 
+leader = true 
+for j = i+1 ----> n {
+if(a[j] > a[[i]
+{
+if any moment we dound any element that is greater we marked that it is not a leader 
+leader = false 
+break 
+}
+if(leader==true
+){
+ans.push_back(a[i])
+}
+}
+
+
+near about 0(n2) not exactly usse km 
+sc --> i have not used any extra space in order to solve the problem so sc is o(1)
+
+but what if hum kuch aisa kr rhe hote jo ki isi array me rkh rha hota baaki saare pop kr rha hota 
+crazy question
+pop krte hi but idhr udhar ke array ko shift knra pdta 
+
+isme koi better nhi h 
+optimal hi h direct
+
+
+10 22 12 3 0 6
+
+if 22 se leader toh iske aage saare chote h 
+if array element is maximum on the right than that we can say element is max / leader
+
+max = int_min
+jese jese bda milegam max ko update krunga and usi time push krunga 
+and har element ko max se compare krunga if found then max update krunga push krunga 
+bacl traversal h 
+
+toh output 6 12 22 hoga
+and if order of the array ya sort ka kha hoga toh aap vese hi karke derhe hoge 
+
+#include<stdio.h>
+#include<bits/stdc++.h>
+using namespace std ; 
+
+
+int main() { 
+    vector<int> arr = {10 ,22,12,3,0,6};
+    int n = arr.size() ; 
+    vector<int> ans ;
+    // ab hume ulta chlna h bda jha max = 0 rkh rhe honge 
+    // fir at har point max nikalenge 
+    // maanlo 6 agya max push jese hi max mila
+    // then piche aaye dekha kya max se bda h nhi okay then again 3 kya max se bda h nhi move 
+    // fir piche aaye 12 dekha max se bda h then hn max mila h push krdoo 
+    // then asie hi krenge or sb ko push krte chlegne 
+    int max = -1 ;
+    for(int i = n-1; i>=0; i--){
+        if(arr[i]>max){
+            max = arr[i];
+            ans.push_back(max);
+        }
+    }
+
+    for(auto it : ans){
+        cout << it << " " ; 
+    }
+
+}
+
+last me aap 
+sort(ans.begin() , ans.end())
+
+
+timecomplexcity 
+phla loop 0(n)
+
+and then sort ke liye 
+0(n logn)
+
+
+
+
+
+
+Largest conscutiv sequence 
+
+sme questionkya pure array me onseutie number bikkhre huyeh h aapko dhundne h konsi seris lmb h 
+
+arr[]= [100,1,2,101,103]
+
+aise idha lmbi series h 100 , 101,103
+
+toh iska brute force kuch is trh hgoa 
+
+#include<stdio.h>
+#include<bits/stdc++.h>
+using namespace std ; 
+
+bool ls (vector<int> arr , int num){
+    int n = arr.size() ;
+    for(int i = 0 ; i < n ; i++){
+        if(arr[i]==num){
+            return true;
+        }
+    }
+    return false ;
+}
+// milega toh true ajayega
+// nhi milega toh false dega
+
+int main() { 
+    vector<int> arr = {100,4,200,1,3,2};
+    int n = arr.size() ; 
+    // ek number pkdenge fir us number ke liye uska next dekhenge 
+    // next dhundhenge agar next mil rh ahoga toh aage bdhenge 
+    // 100 ko pkda via first loop 100 and next 101 dhundunga
+    // you only check next number because of break 
+    int len = 1;
+    int maxl = 1 ; 
+    for(int i = 0 ; i < n ; i++){
+        int x=arr[i];
+        len = 1 ; 
+        // merko kya krna h 100 ke liye 101 dhundna h 
+        // agar 101 milta h toh 102 dhundna h 
+       while(ls(arr,x+1)==true){
+             // but yeh tb tk chlega jb tk condition true h 
+             // phle ke liye dekhega ki true h 
+             // jb tk chlega jb tk true h 
+             x = x+1 ; // next wala dhundho 
+             len = len + 1 ; 
+             maxl = max(len , maxl);
+       } 
+    }
+    cout << "hello" << endl;
+    cout << maxl << endl;
+    for(auto it : arr){
+        cout << it << " "; 
+    }
+
+}
+
+time complexcity
+0(N) first loop
+0(n) internal loop
+0(n2) aayega iska output 
+
+
+
+
+in order to understand the better sollution
+
+arr[] = 100 , 102 , 100 , 101 , 101 , 4 ,3 ,2 ,3 , 2 , 1 , 1, 1, 2]
+
+sort krdete h we have consecutive  sequence 
+
+[1,1,1,2,2,2,3,3,4,100,100,101,101,102 ]
+
+inution behind sorting is to bring them toghether
+longest = 1 ;
+last smaller = int-min 
+cnt curr = 0 ; 
+
+ab mereko start kru or dekhu 1 agar tum mere sequence ke part ho toh 1 se phle 0 hona cahhiye 
+
+but abhi toh 1 se phle int-min h not a good thought
+last-smaller = 1 ;
+cnt curr = 0 ; 
+ab next liya woh bhi 1 aaaya kya tum seuqnce k epart ho nhi tum nhi ho tum same  hi compare kiya with last-smaller
+count bhi increase nhi hoga 
+
+again you get a 1 
+still ignoree
+
+move to 2 
+2 ko agar sequence ka part ho hona h aap previous 1 ko look kroge ki woh tha toh yeh bhi hoga 
+by comparing hn woh tha 
+last smaller = 1
+count= 2
+last smaller = 2
+longest = 2
+
+stnading at second 2 ise nhi lerhe hogne 
+standing at third two nhi lenge 
+stnading at 3 leelenge 
+last sma;;er 2 
+current cnt = 3 
+longest = 3
+
+agle 3 ko ignore kiya 
+now standing at 4 
+last smaller 4
+current cnt = 4
+longest= 4 
+
+isme kya h sort krdiya na toh hum issiliye count kr parhe h in one swap sort na kiya hota toh kya bta bda piche aajaye
+
+
+now standing at 100
+last smaller 4
+current cnt = 4
+longest = 4
+
+it looks at last smaller that is 4 uske liye 9 chahiye tha toh hum sb kuch reset krek dubara se start hoyenge 
+but smjho phle wale me hum isliye kr rhe the kyuki same arha tha same pe skip 
+bde jo + 1 se bhi bda ho uspe sidha ignire
+
+start fress
+cnt curr = 1
+last smaller 100
+longest 4 
+
+100 dubara aya ignore
+fir 101 aya h 
+cnt curr = 2
+last smaller = 101
+longest = 4
+
+101 aya ignore
+102 aya
+cnt curr = 3
+last smaller 102
+longest = 3
+
+longest is the ans 
+
+
+#include<stdio.h>
+#include<bits/stdc++.h>
+using namespace std ; 
+
+int main() {
+    vector<int> arr = { 100 , 102 , 100 , 101 , 101 , 4 ,3 ,2 ,3 , 2 , 1 , 1, 1, 2};
+    int n = arr.size() ; 
+
+     if(arr.size() == 0){
+        cout << 0;
+        return 0;
+    }
+
+    sort(arr.begin() , arr.end());
+// sorting hogyi ab hum krenge traverse
+    int small = INT_MIN;
+    int largest = 0 ; 
+    int cnt = 0 ; 
+
+    for(int i = 0 ; i < n ; i ++){
+        if(arr[i]>small){
+            // mtlb bda h fresh start kro 
+            if(arr[i]-1==small){
+                cnt = cnt + 1 ; 
+            }
+            
+            else{
+            cnt = 1 ; // sirf cnt hi reset hoga 
+            }
+            small = arr[i];
+            largest = max (largest,cnt );
+
+        }
+        else if(arr[i]==small){
+            // ignore 
+            continue ; 
+        }
+        
+    }
+
+    cout << largest ;
+}
+
+// yeh mera handwritten code h accoriding to striver do if lgenge
+// ek if arr[i]-1 == last smaller
+// ek arr[i] ! = last smaller )
+
+// == ki exactly likhne ki jrurat nhi h khud dekhhga kuch nhi h toh skip kr hi dega 
+/// hume inhi dono ki likhni chaiye 
+
+
+time complexcity 
+sort -- nlogn
+for loop 0(N) 
+
+
+so in this case we are distorting the array which is not good
+so we have to improve this
+toh hum iska optimal likne ka try krenge jismunordered set lenge
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& arr) {
+    int n = arr.size() ; 
+    // int count = 0 ; 
+    int mcount = 0 ; 
+
+     if(arr.size() == 0){
+        return 0;
+    }
+
+    // ab hume set me dalna h ek ke element 
+    unordered_set<int> us ; 
+    for(int it : arr){
+        us.insert(it);
+    }
+
+    for (int it : us){
+        // iterate in the set  isi tirke se kar skta h 
+        if(us.find(it-1)==us.end()){ // this mean if not found you have to return end 
+            // agar chota nhi h tbhi hum aage jaana h 
+            int cnt = 1 ; 
+            int x = it ; 
+            while(us.find(x+1)!=us.end()){ // this mean jb tk mil rha h toh return true derh ahoga 
+                x=x+1;
+                cnt = cnt + 1;
+                 // mtlb hume bda milta jarha h hum cnt bdhate jaayenge 
+                //  and x ko bhi 
+
+            }
+            mcount = max(mcount , cnt);
+        }
+    }
+
+    return mcount ;
+
+    }
+};
+
+
+assuming set taking 0(1) in inseetion toh yeh mila ke hojayega 0(N) 
+
+toh fill krne me hi 0(n) hojayega
+then iterating in the set using for loop
+0(n) iska bhi hojayega 
+and then ek while loop lg rha h toh woh n2 nhi hoga
+
+in this example humne 7 iteration ki 
+but udhr particular ki agr hume 100 mila toh 
+100,101,102
+1,2,3,4,
+
+
+
+toh yhe bhi n hi hua jyada nhi chla toh it is near about 2n iteration 
+idhr humen 2 ,3 se start nhi kiya 
+sirf ek hi do situation pe start kre h humne isliye n2 nhi h 0(n) hi h 
+
+at max it goes 2n
+if set is takin
+
+toh total tc hui 0(n) + n = 3n
+
+
+sc --> 0(n)
+
+
+new question
+set matrix zeroes 
+
+1 1 1 1 
+1 0 0 1
+1 1 0 1
+1 1 1 1
+
+
+n*m matrix digyi h jisme n or m same hoskte h or nhi bhi 
+
+toh aapko 0 0 diya h agr khi bhi toh us 0 0 ke hisab se aapko row and collumn ko completely zero krna h 
+puri row puri collumn 
+
+for eg aij = 0 diya h 
+toh saare aix wale 
+and saare axj wale aapko 0 krdeene h 
+
+int main() { 
+vector<vector<int>> m = {{1,1,1},{1,0,1},{1,1,1}};
+for(auto row : m){
+    for(auto val : row){
+        cout << val << " ";   
+    }
+    cout << endl ;
+}
+
+}
+
+
+this is the way i can print  
+
+abhi mene runwegrha rkek dekha h yeh matrix ke sath khelan thod mushilh ;; 
+do looplgte h or fill krna mushkil h banan mshil h 
+chlo dekhte h brute force kya hoga
+
+
+insme entire row and column ko zero marked krna h 
+n* m matrix h 
+hum iterate krenge 00 and 01 02 aise krte hyue and check ki woh 1 h 
+the moment i found 0 toh agar me starting me 0 milte hi sb ko 90krne lg jaaunga toh yeh messy krega isse kya hoga ki ais the ammoutn of 0 bhad jaayenge or fir jese ple koi mila woh puri column 0 krega and uske baad woh next encounter me 0 extra mil rhe honge toh humdirect 0 nhi kar rhe honge -1 krenge phle fir 0 krenge 
+ab jese 0 milega toh mera kaamthause correspondance row or column ko 0 krdo me nhi kr rha hounga me use -1 kar rha hounga 
+
+jb me -1 kr rha hounga toh make sure me 0 ko -1 nhi krunga kykui woh 0 s a inital state me tha and woh aage kaam arha hoga 
+
+oce you have done this marking 
+
+for(i=0 ; i < n ; i++) 
+for(j=9 ; j , N : j++
+{
+if(Arr[i][j[ == 0 ) 
+markrow(i)
+marrow(j)
+}
+}
+
+
+hume uspe jaake do fucniton call krne h 
+markrow and markcol
+
+markrow(i){
+for(j=0 ; j < m ; j ++ ) {
+if(arr[i][j] ! = 0) 
+arr[i][j] = -1 ;
+}
+}
+
+markcol(j){
+for(i=0 ; i < n ; i++){
+if(arr[i] [j] ! 0 ) {
+arr[i][j] = -1 ;
+}
+}
+
+
+jo jo sare non zero ko -1 marks kr rha hoga 
+yeh marking hogyi whats the next job is to iterate into the matrix and mark as we want
+for(i=0 --> n ) P
+for(j=0 --> m ) P
+if(arr[i][j] == -1 ) {
+arr[i][j] = 0 ;
+}
+}
+
+
+time complexcity hogyi 
+n*m for markrow and markrow ko just call krne keliye
+n+ m marknrow or mark row ka particular
+n*m for making all -1 to 0 
+
+tc (n*m) x (n+m) + (n*m) = 3
+
+n3 le rha h yeh chlo 
+thoda btetter dekht eh 
+
+we are traversing an entire arrayh and after that for every zero we are going backacross column and row again again
+better n2 hona chaiyye
+
+ek puri line ko 0 krne ke liye sirf hume ek hi zero chaiye uski correspondance line me 
+
+agar me aise krdu ki is row me ekbhi zero h toh by the end of day prua hi zero hone wala h kuc mark rkdu 
+
+vector<vector<int>> m = {{1,1,1},{1,0,1},{1,1,1}};
+
+111
+101
+111 
+
+aisi array bnegi agar for i in arr --- > for j in i me ek bhi 0 h mark krdenge hum ki yeh toh pura zero krne wala h and yeh saare i[1] ko bhi kreega 0 
+
+
+toh mereko extra column or row up and side honge jo help krenge mark krenge 
+
+ 
+col array of n size
+row arry of m size 
+
+intially sb 0 rkhungarun
+
+[ 000 ]
+-
+0 111
+0 101
+0 111 
+-
+
+ab traverse krunga agar merko 0 milega toh m uske corrspondace column and row array me 0 and 1 mark krdunga
+
+[ 010 ]
+-
+0 111
+1 101
+0 111 
+-
+
+ab hum re iteration krenge kya me zero hougna har element se puchunga agr mera marked zero h toh me zeor hounga aise kreke me dubara iterate me dekhunga 
+
+code
+
+col[m]
+row[n]
+
+for(i=0--> n)
+for(j=0 -->m 
+if(arr[i][j] == 0 ) {
+row[i] = 1;
+row[j] = 1;
+}
+}
+}
+
+marked krdiya
+for(i=0--> n ) { 
+for(j-0--> m {
+if(row[i] == 1 || rpw[j] == 1 ) {
+if dono me se koi bhi markked h i dont care
+a[i][j]=0 ;
+}
+
+you wil be zero for sure
+
+
+timce complexcity 
+0(n2)
+0(n2)
+
+= 20(n2)
+sc -- > 0(N) + (N)
+
+do array ka space le rhe h hum crazy jo glti h hume or optimal krne 
+pdega 
+
+agar me extra kuch na lu mtlb merko sbkuch us mtrix me hi krna hoga 
+can i keep the track in the matirx itesnleg 
+col[0] --> row[n]
+row[0] --> col[m]
+
+ab aap andar count kroge toh ojo upar ka 00 h woh dono me common horha hoga jo ki hsi nhi h 
+its about theat only point 
+
+toh me kya krungajb me row lunga 00 se nhi lunga 01 se lunga and column ka 00 se hi horh ahoga 
+but 00 nhi hoga toh row ka kese krenge hum 
+toh is specific ke liye hum ek column variabel banelaenge col0 = 1 
+
+ab koi collision nhi hoga 
+
+1111
+1011
+1101
+0111
+
+ab dekho jo 0 arha h woh usek corrspoondance wale upr or side wale 1 ko 0 bnarha h 
+similary seocnwala bhi
+third wala 0 apen aapko 0 bnatega and col0 = 1 ko 0 bnyega 
+ab hogye marked hoge dubara iterate krenge 
+
+
+but aap dubara iterate kroge or phle me 00 pe woh check krega corrospndance elemetn ko col0  and row check krega ki yeh marekd h 
+or 0 krdega but yhe amrekd row ka part h toh agar yeh 0 hogya mtlb isse markde ht gya toh aage ke eleemtns ko toh bta hi nhi chelg aki merko 0 hona tah toh hum jo yhe wali row or column h unhe leke nhi chlenge
+
+0 hone pe hum corresponding row or column ko 0 kr rhe honge
+
+start bilkul nn se krenge corrospodnig row and column check krenge 
+
+n n-1
+n n-2
+n n-3
+n n-4 nhi cehck kr rhe honge 
+
+aap woh bich ka hisa solve krchuke ho ab aapke pas woh row or column bche h toh phel aap horixontal wali mtlnb row wali uthaoge ya vertical column wali 
+
+ 0
+1 0 0 1
+0
+0
+0
+
+yeh jo sbse kone wala 1 h yeh critical h 
+h itn sasni se change nhi hoga agar viertical wala uthaloge toh value might change and iska correspondance wala 1 se 0 hojayega jo isse effect krega 
+isliye phle aap row ko uthake chloge horixontal wali ko
+
+now us 1 ko 0 hone ke liye 00 wala 1 0 hota nhi h aage bdho 
+baaki toh already 0 h kya hi check krna ignore kro 
+then vertical waale solve krne aaaao
+
+vertical wala jb aap solve kroge first ke liye aap col0 se check kroge and saare niche ke liye col 0 se hi cehck kroge 
+
+toh aap smjh rhe ho na ki phle hume biche ka hissa solve krna h 
+fir horizontal wala fir row wala 
+
+ab int col[n] = {0} nhi krne ki jrurat h 
+   int row[m] = {0} nhi krne ki jrurat h 
+
+for(int i = 0 ; i < n ; i++) {
+for(int j = 0 ; j < m ; j++ ) {
+if(matrix[i][j] == 0 ) {
+// mark the i-th row
+matrix[i][0] = 0 ; 
+if(j!=0) {
+matrix[0][j]= 0 ;
+}
+else colo = 0 ; 
+}// agar aap j = 0 pe ho toh aapkpo col wale varibale se khlne h instead of this 
+}
+}
+}
+
+aise direct nhi likh rhe honge 
+after marking 
+ab aapko ab convert krna h in the wya 0thr row or 0th column ko chode 
+
+for(int i = 1 ; i < n ; i ++ ) {
+for(int j = 1 ; j < - n ; j ++ ) {
+if matrix[i][j] != 0 ) {
+agar zero nhi h mtlb merko bnana pd skta h and bnanek liye me row or column check krungi
+if(matrix[0][j] == 0 || matrix[i][0] == 0) {
+matrix[i][j] = 0 ;
+// agar kuch bhi 0 h toh m zero krdunga
+}
+}
+}
+
+ab hum horizontal wale ko pdenge or mark krege
+for
+if matrix[0][0] is 0 toh yeh puri aage ki row zero hogi 
+if(matrix[0][0] == 0) {
+for(int j - 0 ; j < n ; j ++ ) matrix[0][j] = 0 ;
+}
+
+agar 0 h toh aapne saare ke zero kardene h 
+and ab vertical pe uthayenge 
+vertical toh col 0 pe depnd krta h toh 0 hone ke liye col 0 se compare and boom
+
+tc --> n*m for first marking andinto our marked array
+     + n*m for then bich wlao ko dekhenge and then row and column dekhenge
+
+total is 2(n*m)
+
+
+
+
+
+
+

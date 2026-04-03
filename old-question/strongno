@@ -1,0 +1,40 @@
+import base64
+a = 148
+temp=a
+sum=0
+def fact(n) : 
+ if n==0 :
+  return 1
+ else :
+  return n * fact(n-1)
+
+while a>0 :
+  n=a%10 
+  
+  sum=sum + fact(n)
+  a=a//10
+
+
+print("sum is :" , sum)
+if sum==temp :
+ print("it is a strong no.")
+else :
+ print("it is not a strong no.")
+ 
+
+a = "dronacharya"
+print(a[0])
+print(a[::])
+print(a[::2])
+print("occurence of strings")
+print(a.count(a))
+print(a.find("t"))
+print(a.capitalize())
+print(a.encode)
+print(ord(a[0]))
+#print(a.decode())
+x = base64.b64encode(a.encode())
+print(x)
+print(x.decode())
+
+  

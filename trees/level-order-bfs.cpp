@@ -39,14 +39,14 @@ while(!q.empty()){
         node* root = q.front();
         q.pop();
         // front pkd liya 
-        level.push_back(root->data);
+        
         if(root->left!=NULL){
             q.push(root->left);
         }
         if(root->right!=NULL){
             q.push(root->right);
         }
-
+        level.push_back(root->data);
     }
 
     ans.push_back(level);

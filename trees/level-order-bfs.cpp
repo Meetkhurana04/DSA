@@ -39,7 +39,6 @@ while(!q.empty()){
         node* root = q.front();
         q.pop();
         // front pkd liya 
-        
         if(root->left!=NULL){
             q.push(root->left);
         }

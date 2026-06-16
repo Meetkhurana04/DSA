@@ -28,7 +28,9 @@ root->left->right = new node(5);
 queue<node*> q ; 
 vector<vector<int>> ans;
 
-q.push(root);
+q.push(root);// root ko push kiya tb tk chlana h jb tk root khali nhi hota or for ka use hum tb krenge jb hume sabke bche dalne honge or yhe chij hum q.front() se handle krenge stack lifo hota h queuq first in first out hota h 
+
+//mtlb stack me jo dala woh niklega or queue me j o phle daal tha voh niklega 
 
 while(!q.empty()){
     int size = q.size() ; 

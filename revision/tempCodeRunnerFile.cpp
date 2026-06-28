@@ -36,22 +36,29 @@ int main()
   // manlete h jese hi aata h stack me push kiya print kiya push kiya print kiya left me gye push kiya print kiya or left me kiye // jese hi null aye pop kro right pe jaao if left poossible h left pe jao nhi h toh righ tpe jao
   st.push(root);
   vector<int> push ;
+  push.push_back(root->data);
   while(!st.empty()){
-    node * top = st.top() ; 
-    cout << top->data;
-    st.pop() ; 
-    if(top->right!=NULL){
-      st.push(top->right);
-    }
-    if(top->left!=NULL){
-      st.push(top->left);
-    }
-    //prioeritely righ tme hi jaayega jha atke ga wha left me jaayeg a
-    // yeh aise skewed manner me nhi chl rha h jese hum soch rhe h ki side side jaatarhega or pop ki kuch different tariek se kaam kr rha h yha pe ; yeh kese work kar rha me smjhata hu phle 1 push kiya print kiya pop kiya 2 3 push kiya usme se 2 print  kiya pop kiya uske bache daale 4 5 then uske niche toh kuch nhi h 4 ke toh 4 pop hogya aaye 5 pe 5 ke niche kuch nhi h pop hogya fir hum aagye 3 pe uske niche h 6 pe  then 7 pe
+    if(root->left!=NULL){
+      root = st.top()->left ;
+      st.push(root);
+      push.push_back(root->data);
 
-    // phle root jaayega print hoga pop hoga fir unke do bche jaayengeright left  maaner me righ tfirst then left isse left upar ajayeag or woh priorty lega mtlb left ki direction me chlega 
+    }
+    else{
+      st.pop();
+      st.top()->left = NULL ;
+      if(st.empty()){
+        break; 
+      }
+      root=st.top()->right;
+      st.push(root);
+      push.push_back(root->data);
+    }
   }
   
+for(auto it:push){
+  cout << it ;
+}
 
 
 }

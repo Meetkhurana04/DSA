@@ -33,40 +33,60 @@ int main(){
 
    q.push(root);
 
-   
-   while(!q.empty()){ // jb tk empty nhi h aapko chlna h
+   while (!q.empty())
+   {
+
      vector<int> level;
-    int size = q.size() ; 
-    for(int i = 0 ; i < size ; i++){
-      node* temp = q.front();
-        q.pop();
-     if(flag == 0 ){
-     if (temp->left != NULL)
-     {
-       q.push(temp->left);
-     }
-   if(temp->right!=NULL)
-   {
-    q.push(temp->right);
 
-   }
-   flag = 1; 
-  }
-   if(flag == 1 ){
-     if (temp->left != NULL)
-     {
-       q.push(temp->left);
-     }
-   if(temp->right!=NULL)
-   {
-    q.push(temp->right);
+     int size = q.size();
 
+     if (flag == 0)
+     {
+       for (int i = 0; i < size; i++)
+       {
+         node *temp = q.front();
+         q.pop();
+
+         if (temp->left)
+           q.push(temp->left);
+
+         if (temp->right)
+           q.push(temp->right);
+
+         level.push_back(temp->data);
+       }
+
+       flag = 1; // yaha
+     }
+
+     else
+     {
+       for (int i = 0; i < size; i++)
+       {
+         node *temp = q.front();
+         q.pop();
+
+         if (temp->left)
+           q.push(temp->left);  // yeh part toh commn h toh fir loop me kyu h // toh isko toh mene glt hi wrap kiya h konsa me ulta kr rha hu 
+
+         if (temp->right)
+           q.push(temp->right);
+
+         level.insert(level.begin(), temp->data);
+       }
+       flag = 0; // yaha
+     }
+
+     st.push(level);
    }
-   flag = 0; 
+
+while(!st.empty()){
+  auto it = st.top();
+  st.pop();
+  for(auto i : it){
+    cout << i ; 
   }
-   level.push_back(temp->data);
-  }
-  st.push(level);
+  cout << endl;
 }
 
 

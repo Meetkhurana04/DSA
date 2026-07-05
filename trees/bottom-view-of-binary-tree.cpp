@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct node
@@ -51,7 +52,7 @@ int main()
   }
 
   for(auto it : mp){
-    cout << it.second() << endl ;
+    cout << it.second << endl ;
   }
 
   return 0;

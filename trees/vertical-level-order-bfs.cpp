@@ -94,4 +94,3 @@ vector<vector<int>> verticaltraversal(node *root)
     cout << endl;
   }
 }
-
